@@ -1,0 +1,96 @@
+<div class="homepage wrapper">
+	<div class="homepage-header">
+        <div class="nav">
+            <div class="nav-tabs">
+                <ul>
+                    <li class="nav-tabs-item" ng-click="Functions.showMyLibrary()"><a>Home</a></li>
+                    <li class="nav-tabs-item2" ng-click="Functions.showFav()"><a class="dis" disabled>Favourites</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="search-home">
+            <div>
+                <input id="input-favorites-search" type="text" placeholder="Type in URL or search topic here..." ng-keydown="urlKeydown" class="ng-pristine ng-valid" enter-press="openUrlOrGoogleSearchFromFav()">
+            </div>
+        </div>
+        <div>
+            <!--<div id="div-browser-menu-button" ng-click="showFavDDL($event)"></div>
+            <div id="div-browser-drop-down-menu" class="drop-down-menu">
+                <div class="triangle-up"></div>
+                <div class="drop-down-menu-items">
+                    <div class="drop-down-menu-item" ng-click="startScreenShareFromFav()">Share screen</div>
+                    <div class="drop-down-menu-item" ng-click="showNewChatPanelFromFav()">Start chat</div>
+                    <div class="drop-down-menu-item" ng-click="startVideoChatFromFav()">Start video chat</div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+	<div class="container">
+		<div class="cntnr-top">
+		    <ul class="list-items-t list-items" id="favs" ng-controller="favoritesController">
+				<div class="div-favorites-links-title" ng-show="showDayFavorites()">Added today</div> 
+				<p class="col-not empty-favorites" ng-hide="swapSettings.Favorites.length" >You have no links in favorites! Add first!</p>
+		        <li ng-repeat="favorite in swapSettings.Favorites | filter:filterFunctions.day : orderBy:'-DateCreated'">
+		            <div class="icon-left image">
+		                <img ng-src="{{getFavIconUrl(favorite.IconId)}}" alt="">
+		            </div>
+		            <div class="text-cntr" ng-click="openFavLink(favorite.Url)">
+		                <p >{{favorite.Title}}</p>
+		                <p>{{getDate(favorite.DateCreated)}}</p>
+		            </div>
+                    <div class="arrowRight icn-arrow">
+		                <a rel="favorite.Url" class="to-left to-left-chats"></a>
+		            </div>
+		            <div class="icn-trash" ng-click="confirmDeleteFavoriteLink(favorite.FavoriteId)">
+		                <a href=""></a>
+		            </div>
+		            <div class="icn-share" ng-click="showShareItModal(favorite)">
+		                <a href=""></a>
+		            </div>
+		        </li>
+		        <div class="div-favorites-links-title" ng-show="showWeekFavorites()">Added in a previous 2 weeks</div>
+		        <li ng-repeat="favorite in swapSettings.Favorites | filter:filterFunctions.week : orderBy:'-DateCreated'" ng-click="openFavLink(favorite.Url)">
+		            <div class="icon-left image">
+		                <img ng-src="{{getFavIconUrl(favorite.IconId)}}" alt="">
+		            </div>
+		            <div class="text-cntr">
+		                <p >{{favorite.Title}}</p>
+		                <p>{{getDate(favorite.DateCreated)}}</p>
+		            </div>
+		            <div class="arrowRight icn-arrow" >
+		                <a rel="favorite.Url" class="to-left to-left-chats"></a>
+		            </div>
+		            <div class="icn-trash" ng-click="confirmDeleteFavoriteLink(favorite.FavoriteId)">
+		                <a href=""></a>
+		            </div>
+		            <div class="icn-share" ng-click="showShareItModal(favorite)">
+		                <a href=""></a>
+		            </div>
+		        </li>
+		        <div class="div-favorites-links-title" ng-show="showTwoWeeksFavorites()">Added more than 2 weeks ago</div>
+		        <li ng-repeat="favorite in swapSettings.Favorites | filter:filterFunctions.twoweeks : orderBy:'-DateCreated'" ng-click="openFavLink(favorite.Url)">
+		            <div class="icon-left image">
+		                <img ng-src="{{getFavIconUrl(favorite.IconId)}}" alt="">
+		            </div>
+		            <div class="text-cntr">
+		                <p >{{favorite.Title}}</p>
+		                <p>{{getDate(favorite.DateCreated)}}</p>
+		            </div>
+		            <div class="arrowRight icn-arrow">
+		                <a rel="favorite.Url" class="to-left to-left-chats"></a>
+		            </div>
+		            <div class="icn-trash" ng-click="confirmDeleteFavoriteLink(favorite.FavoriteId)">
+		                <a href=""></a>
+		            </div>
+		            <div class="icn-share" ng-click="showShareItModal(favorite)">
+		                <a href=""></a>
+		            </div>
+		        </li>
+		    </ul>
+        </div>
+	
+	</div>
+    <div class="footer">
+						    	
+    </div>
+</div>

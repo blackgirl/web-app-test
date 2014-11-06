@@ -1,0 +1,35 @@
+﻿<div class="container">
+    <div class="tableDiv">
+        <div id="div-videos-wrap" class="tableDivRow">
+            <div class="addchat-wrap">
+                <div class="control-back">
+                    <span></span>
+                </div>
+                <div class="controls-wrap">
+                    <!--<div ng-switch="_screenOpened && isInitiator()">
+                        <!--<div ng-switch-when="false" class="start_screening" ng-click="startConcurrentScreenSharing()" title="Start screenshare">
+                            <a class="start_screening"></a>
+                        </div>
+                        <div ng-switch-when="true" class="stop_screening" ng-click="!isInitiator() || closeScreenSharing()" title="Stop screenshare ">
+                            <a class="stop_screening"></a>
+                        </div>
+                    </div>-->
+                    <div ng-switch="_videoChatOpened">
+                        <div class="hung-down" ng-switch-when="true" ng-click="closeVideoChat()" title="Exit video chat">
+                            <a class="hung-down"></a>
+                        </div>
+                        <div class="start_video" ng-switch-when="false" ng-click="startConcurrentVideoChat()" title="Start video chat">
+                            <a class="start_video"></a>
+                        </div>
+                    </div>
+                    <div class="add-user" ng-click="showAddUserToVideoChatModal()" title="Add user to video chat">
+                        <a class="add-user"></a>
+                    </div>
+                </div>
+            </div>
+            <div id="remoteVideosWrapper">
+                <div id="remoteVideos"></div>
+            </div>
+        </div>
+    </div>
+</div>

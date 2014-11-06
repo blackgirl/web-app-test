@@ -1,0 +1,44 @@
+﻿.home-intro {
+    display: block;
+    width:100%;
+    background: url(../img/intro/home_intro_bg_fill.png) repeat-x;
+    height: 199px;
+    border: none 0px;
+    overflow:hidden;
+}
+
+    .home-intro  .inner {
+       float:left;
+       height: 199px;
+       width:980px;
+       background: url(../img/intro/home_intro_bg.png) no-repeat;
+       padding-left: 37px;
+    }
+        .home-intro  .inner h1 {
+            color: #282D32;
+            font-family: 'Lato Light';
+            font-size: 42px;
+            margin-top:10px;
+        }
+        .home-intro  .inner h2 {
+            color: #282D32;
+            font-family: 'Lato Light';
+            font-size: 30px;
+        }
+
+        .home-intro  .inner p.platform-icons {
+            margin-top: 20px;
+        }
+            .home-intro  .inner p.platform-icons a {
+                margin-right: 10px;
+            }
+
+        .home-intro  .inner p.platform-links  {
+            margin-top: 15px;
+            color: #074977;
+        }
+
+            .home-intro  .inner p.platform-links a {
+                color: #074977;
+                text-decoration:underline;
+            }

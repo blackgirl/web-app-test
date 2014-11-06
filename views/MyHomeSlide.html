@@ -1,0 +1,118 @@
+<ul class="ul-group-chat-header list-menu">
+    <li class="li-back-button">
+        <a id="my-home-back" class="radius-button-back-chats"></a>
+    </li>
+    <li class="menu-title">Clips &amp; Links</li>
+    <li class="menu-button">
+        <a class="circle-button circle-button-context-menu"></a>
+    </li>
+</ul>
+
+<div class="div-my-home-container scroll-block" ng-controller="favoritesController">
+    <div>
+        <div class="container-featured" ng-hide="!swapSettings.Links.FeaturedLinks.length">
+            <div class="col-name">
+                <i class="top-icon"></i><span class="col-name">Top 10 Viral Videos</span>
+            </div>
+            <ul class="list-items list-items-t">
+                <li ng-repeat="feature in swapSettings.Links.FeaturedLinks" ng-click="openFavorite(feature)">
+                    <span class="featured-positions">{{$index + 1}}</span>
+                    <div class="icon-left image">
+                        <img ng-src="{{getFavIconUrl(feature.IconId)}}" alt="">
+                    </div>
+                    <div class="text-center">
+                        <div class="favContainer" ng-switch="showFavUrl(feature)">
+                            <p class="title">{{feature.Title}}</p>
+                            <p class="url" ng-switch-when="true">{{feature.Url}}</p>
+                        </div>
+                        <div class="cos-icon" ng-if="feature.SharesCount">
+                            <div class="cos-icon">
+                                <img src="css/img/redesign/shares.png" alt="">
+                                <span class="countSpan">{{feature.SharesCount}}</span>
+                            </div>
+                        </div>
+                        <div ng-if="feature.FavoritesCount">
+                            <div class="cos-icon">
+                                <img src="css/img/redesign/comments.png" alt="">
+                                <span class="countSpan">{{feature.FavoritesCount}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="container-friendsLike">
+            <div class="col-name">
+                <i class="friends-icon"></i><span class="col-name">Links friends shared</span>
+            </div>
+            <ul class="list-items-f list-items-t">
+                <li class="list-friend" ng-repeat="friendLike in swapSettings.Links.FriendsShares">
+                    <ul class="list-items list-items-t">
+                        <div class="friend-block">
+                            <div class="icon-left image">
+                                <img ng-src="{{getUserImage(friendLike.UserId)}}" class="user-photo f-user-photo {{getUserInfoById(friendLike.UserId, false).StatusClass}}" alt="">
+                            </div>
+                            <div class="text-center text-center-name">
+                                {{getUserInfoById(friendLike.UserId, false).UserName}}
+                            </div>
+                        </div>
+                        <li ng-repeat="like in friendLike.SharedLinks" ng-click="openFavorite(like)">
+                            <div class="icon-left image">
+                                <img ng-src="{{getFavIconUrl(favorite.IconId)}}" alt="">
+                            </div>
+                            <div class="text-center">
+                                <div class="favContainer" ng-switch="showFavUrl(like)">
+                                    <p class="title">{{like.Title}}</p>
+                                    <p class="url" ng-switch-when="true">{{like.Url}}</p>
+                                </div>
+                                <div class="cos-icon" ng-if="like.SharesCount">
+                                    <div class="cos-icon">
+                                        <img src="css/img/redesign/shares.png" alt="">
+                                        <span class="countSpan">{{like.SharesCount}}</span>
+                                    </div>
+                                </div>
+                                <div ng-if="like.FavoritesCount">
+                                    <div class="cos-icon">
+                                        <img src="css/img/redesign/comments.png" alt="">
+                                        <span class="countSpan">{{like.FavoritesCount}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="container-top">
+            <div class="col-name">
+                <i class="swapcast-icon"></i><span class="col-name">Suggested</span>
+            </div>
+            <ul class="list-items-t list-items">
+                <li ng-repeat="favorite in swapSettings.Links.TopRatedLinks | limitTo: 5" ng-click="openFavorite(favorite)">
+                    <div class="icon-left image">
+                        <img ng-src="{{getFavIconUrl(favorite.IconId)}}" alt="">
+                    </div>
+                    <div class="text-center">
+                        <div class="favContainer" ng-switch="showFavUrl(favorite)">
+                            <p class="title">{{favorite.Title}}</p>
+                            <p class="url" ng-switch-when="true">{{favorite.Url}}</p>
+                        </div>
+                        <div class="cos-icon" ng-if="favorite.SharesCount">
+                            <div class="cos-icon">
+                                <img src="css/img/redesign/shares.png" alt="">
+                                <span class="countSpan">{{favorite.SharesCount}}</span>
+                            </div>
+                        </div>
+                        <div ng-if="favorite.FavoritesCount">
+                            <div class="cos-icon">
+                                <img src="css/img/redesign/comments.png" alt="">
+                                <span class="countSpan">{{favorite.FavoritesCount}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class='clearfix'></div>
+    </div>
+</div>

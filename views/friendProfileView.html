@@ -1,0 +1,51 @@
+﻿<ul class="ul-group-chat-header list-menu">
+    <li class="li-back-button">
+        <a id="friends-profile-back" class="radius-button-back-chats"></a>
+    </li>
+    <li class="menu-title">{{ friendProfile.FirstName + ' ' + friendProfile.LastName }}</li>
+    <li class="menu-button">
+        <a class="circle-button circle-button-context-menu"></a>
+    </li>
+</ul>
+
+<div class="div-friend-profile-container scroll-block">
+    <div class="profile-tab tableDiv">
+        <div class="tableDivLeft">
+            <div style="">
+                <img id="userLogo" ng-src="{{friendProfile.Userpic}}" alt="swapcast logo" />
+            </div>
+        </div>
+
+        <div class="tableDivRight">
+            <div class="tableDivRow">
+                <form>
+                    <div id="FirstNameFormElement" class="form-element">
+                        <label>
+                            <span class="profile-tab-span">First Name</span>
+                            <input class="profile-tab-input form-control form-control-profile" ng-model="friendProfile.FirstName" type="text" disabled>
+                        </label>
+                    </div>
+                    <div id="LastNameFormElement" class="form-element">
+                        <label>
+                            <span class="profile-tab-span">Last Name</span>
+                            <input class="profile-tab-input form-control form-control-profile" ng-model="friendProfile.LastName" type="text" disabled>
+                        </label>
+                    </div>
+                    <!-- Select block -->
+                    <div id="CountryFormElement" class="form-element">
+                        <label>
+                            <span class="profile-tab-span">Country</span>
+                            <input class="profile-tab-input form-control form-control-profile" ng-model="friendProfile.Country" type="text" disabled>
+                        </label>
+                    </div>
+                    <div id="CityFormElement" class="form-element">
+                        <label>
+                            <span class="profile-tab-span">City</span>
+                            <input class="profile-tab-input form-control form-control-profile" ng-model="friendProfile.City" type="text" disabled>
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

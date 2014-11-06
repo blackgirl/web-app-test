@@ -1,0 +1,29 @@
+﻿<ul class="ul-group-chat-header list-menu">
+    <li class="li-back-button">
+        <a id="new-chat-to-chats" class="radius-button-back-chats" ></a>
+    </li>
+    <li class="menu-title">New chat</></li>
+    <li class="menu-button">
+        <a class="circle-button circle-button-context-menu"  ></a>
+    </li>
+</ul>
+<div class="div-add-friends-container div-add-friends-input-container">
+    <input ng-model="MultipleGroup.GroupName" placeholder="Chat name" />
+</div>
+<div class="scroll-block">
+    <ul class="list-items">
+        <li ng-repeat="friend in swapSettings.Friends" class="li-friend">
+            <div class="div-friend-image">
+                <div class="user-photo-frame {{getFriendInfo(friend).StatusClass}}">
+                    <img ng-click="showFriendProfile(friend.UserId)" ng-src="{{friend.Userpic}}" class="user-photo" />
+                </div>
+            </div>
+            <div class="content">
+                <div>{{getFriendInfo(friend).UserName}}</div>
+                <div class="div-user-status-text {{getFriendInfo(friend).StatusClass}}">{{getFriendInfo(friend).Status}}</div>
+            </div>
+            <div ng-click="addFriendToQueue(friend.UserId, $event)" class="btn-invite-add-people-to-group"></div>
+        </li>
+    </ul>
+</div>
+<div ng-click="createMultipleGroup()" class="new-chat-create-button">Create</div>

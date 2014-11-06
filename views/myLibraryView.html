@@ -1,0 +1,33 @@
+<div class="homepage wrapper">
+	<div class="nav">
+		<div class="nav-tabs">
+			<ul>
+			    <li class="nav-tabs-item" ng-click="Functions.showMyLibrary()"><a>Home</a></li>
+				<li class="nav-tabs-item2" ng-click="Functions.showFav()"><a>Favourites</a></li>
+				<li class="nav-tabs-item3" ng-click="Functions.showLib('if_needed')"><a id="a-my-library">My Library</a></li>
+				<li class="nav-tabs-item3" ng-click="Functions.showLib('yes')"><a id="a-my-library-refresh">Refresh</a></li>
+			</ul>
+		</div>
+		<div class="search-home">
+			<input id="searchString" type="text" placeholder="">
+		</div>
+	</div>
+    <div class="containerMediaLibrary">
+        <div id="GalleryList" ng-switch="containsItems()">
+            <div id="div-no-files-label" ng-switch-when="false">No files found</div>
+            <div ng-switch-when="true">
+                <div ng-repeat="gallery in gGalleries | filter: galleryHasItems()" class="gallery">
+                    <h4 class="galleryCaption">{{gallery.name}}</h4>
+                    <div class="galleryItem"  ng-click="openVideo(item.entry.fullPath, item.mData.galleryId)" ng-repeat="item in gItems | filter: isInGallery(gallery)">
+                        <div class="content">{{item.entry.name}}</div>
+                        <div class="arrowRight">
+                            <a href class="to-left to-left-chats"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="footer">	
+	</div>
+</div>

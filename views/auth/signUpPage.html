@@ -1,0 +1,78 @@
+﻿<div class="wrapperland">
+    <div class="div-sign-up-logo">
+    </div>
+    
+    <div class="div-sign-up-bottom-section">
+        <div ng-switch="showLoginProcessArea()">
+            <div ng-switch-when="false">
+                <div class="div-sign-up-motto">Connect and share<br />with your best friends!</div>
+    
+                <div class="content-form">
+                    <div class="div-sign-up-form">
+                        <div class="form-row">
+                            <input type="text" class="form-control inputs" ng-model="SignUpModal.FirstName" placeholder="First name" required/>
+                
+                            <input type="text" class="form-control inputs" ng-model="SignUpModal.LastName" placeholder="Last name" required/>
+						
+                            <div class='clearfix'></div>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" class="form-control inputs" ng-model="SignUpModal.Email" placeholder="Email" required />
+                
+                            <input type="password" class="form-control inputs" ng-model="SignUpModal.Password" placeholder="Password" required />
+						
+                            <div class="mark"><div class="check-point"></div> By joining Swapcast you agree to our Terms of Service</div>
+                
+                            <div class="clear-both">&nbsp;</div>
+                        </div>
+                        <div>
+                            <div class="button join" ng-click="Functions.submitSignUp()" unrestricted="true">Join</div>
+                            <div class="clear-both">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="clear-both">&nbsp;</div>
+                </div>
+            </div>
+            <div ng-switch-when="true">
+                <div class="div-sign-up-motto">{{logInUserName}}</div>
+
+                <div class="content-form">
+                    <div class="div-sign-up-form" style="height:120px;">
+                        <div class="form-row" style="text-align: right;">
+                            <span style="color:#00B4F9; font-family: Lato Light; font-size: 20px; margin: 0;">Logging in...</span>
+                            <img class="loader" style="width:100%;" src="css/img/redesign/loader.gif"/>
+                        </div>   
+                        <div>
+                            <div class="button logout" ng-click="submitSignOut()" unrestricted="true">Log out!</div>
+                            <div class="clear-both">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="clear-both">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        <div class="connect">
+            <div class="alrd">
+                <div>Download for other devices</div>
+                <div>Already have an account?</div>
+            </div>
+            <div>
+                <div class="div-sign-up-download-other-clients">
+                    <div class="desktop" ng-click="downloadDesktopClient()">
+                        <div>Desktop</div>
+                    </div>
+                    <div class="mobile" ng-click="downloadMobileClient()">
+                        <div>Mobile&nbsp;&&nbsp;Tablets</div>
+                    </div>
+                    <div class="clear-both">&nbsp;</div>
+                </div>
+                <div class="connect-buttons">
+                    <div class="login button btn-block btn-primary" ng-click="Functions.showSignInDialog(false)" data-dismiss="modal" unrestricted="true">Log in</div>
+                    <div href="#" class="button fb " ng-click="Functions.signUpFacebook()" unrestricted="true"><span class="facebook-icon"></span>Connect with Facebook</div>
+                    <div class="button gplus " ng-click="Functions.signUpGooglePlus()" unrestricted="true"><span class="googleplus-icon"></span>Connect with Google +</div>
+                    <div class="clear-both">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

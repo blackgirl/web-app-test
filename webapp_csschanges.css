@@ -1,0 +1,437 @@
+html, body {
+	overflow:hidden;
+}
+::-webkit-scrollbar { 
+    display: none; 
+}
+.mobile-item {
+	display:none;
+}
+	#container-left {
+		/*display:block !important;*/
+	}
+#block-new-chat > .scroll-block {
+	height:370px;
+}
+
+div.days-menu.ng-scope {
+	position:relative;
+	top:60px;
+	width:459px;
+}
+ul.ul-group-chat-header.list-menu.ng-scope {
+	position:absolute;
+	top:0;
+}
+
+.my-secret-room-chat-block textarea, .main-feed-chat-block textarea {
+    width: 420px;
+	margin-right:20px;
+}
+.my-secret-room-chat-block, .main-feed-chat-block {
+	height:200px;
+	padding-top: 50px;
+	background: rgb(242, 243, 243);
+}
+.div-add-friends-input-container, .div-filter-friends-input-container {
+	margin-top: 75px;
+}
+#block-my-friends {
+	width:100%;
+}
+div.close-share-button {
+	float:right;
+	margin-right:25px;
+	font-size: 25px;
+}
+
+
+/* Mobile version */
+
+@media screen and (max-width: 980px) {
+	html, body {
+		/*min-width: 445px;*/
+	}
+	#splitter,
+	#myHomeGrid,
+	.chat-mobile-item {
+		display:none;
+	}
+	.home-mobile-item,
+	#container-left {
+		display:block;
+	}
+	#block-new-chat > .scroll-block {
+		height:100%;
+	}
+
+	div#container-right.container-right.tabsArea {
+		left: 0 !important;
+		padding-right:0;
+	}
+	.border-conference-message .main-feed-content {
+		width: 80%;
+		margin-top: 0px;
+	}
+	.border-conference-message h4.username,
+	.border h4.username,
+	.li-link-share h4.username {
+		padding-left: 105px;
+		margin-right: 0px;
+		white-space: nowrap;
+	}
+
+	.border-conference-message .conference-link {
+		text-align: center;
+	}
+
+	.homepage.wrapper {
+		min-width: 1%;
+	}
+	#myHomeGrid .container-top, #myHomeGrid .container-featured, #myHomeGrid .container-friendsLike {
+		width: 100%;
+		margin-left: 0;
+	}
+	#myHomeGrid {
+		top:60px;
+	}
+	#myHomeGrid p.greating {
+		white-space: nowrap;
+	}
+	#myHomeGrid .text-center {
+		width:70%;
+	}
+	.homepage .container-featured {
+		margin-left: 0 !important;
+	}
+
+	.homepage .container-featured .icon-left {
+		width:auto;
+	}
+	#container-right.modals {
+		display:block;
+	}
+	#container-left.container-left, #container-left>div,
+	#block-my-secret-room, #block-main-feed, .block,
+	.scroll-block, .days-menu, .ul-group-chat-header, ul.list-menu,
+	.my-secret-room-chat-block, .main-feed-chat-block,
+	.modal-dialog {
+		width:100% !important;
+	}
+	.div-modal-dialog > .modal-content.signin-modal-content {
+		height:100%;
+	}
+	.div-modal-dialog > .modal-content {
+		width:100% !important;
+	}
+	.signin-modal-buttons-container, .signin-modal-remember-me-container, .signin-modal-forgot-password {
+		text-align: right;
+		margin-right: 0px; 
+		margin-bottom: 10px;
+	}
+	.signin-modal-footer {
+		text-align: right;
+		margin-right: 20px;
+		margin-top: 70px;
+		margin-bottom: 20px;
+	}
+	.signup-modal-footer {
+		margin-left:0px;
+	}
+	.signup-modal-footer button {
+		width:100%;
+		margin-top:10px;
+	}
+	.my-secret-room-chat-block textarea, .main-feed-chat-block textarea {
+	    width: 90%;
+		margin-right:5%;
+		margin-left:5%;
+	}
+	
+	.div-modal-dialog > .modal-content > .modal-footer > button.add-to-fav-link-button {
+		width:auto;
+	}
+	.modal-footer.add-to-fav-modal-footer {
+		text-align: center !important;
+	}
+	li.menu-button {
+		float:right;
+		margin-right:20px;
+	}
+	#block-chat > ul > li:nth-child(2) {
+		/*margin-left:50%;*/
+	}
+	.div-chat-multiple-users-container {
+		width:75%;
+	}
+	.div-chat-title-container {
+		width:45%;
+	}
+	.div-chat-title, .div-chat-last-msg, .div-share-title {
+		width:100%;
+	}
+	.div-group-chat-img-container .main-feed-content {
+		width:40%;
+	}
+	.message-comment > .main-feed-content {
+		width:55%;
+	}
+	.div-my-favorites-container .text-cntr {
+		width:50%;
+		white-space: nowrap;
+	}
+	.div-my-favorites-container .text-cntr p {
+		overflow: hidden;
+		text-overflow:ellipsis;
+	}
+	.div-modal-dialog > .modal-content {
+		width:100%;
+	}
+	ul.list-menu {
+		white-space: nowrap;
+		background: rgb(264,264,264);
+	}
+	ul.list-menu li.menu-title {
+		margin-top: 15px;
+		margin-left:20px;
+		font-size: 18px;
+		color: black;
+	}
+	.menu-button {
+		margin-top: 10px;
+		/*margin-left: 20px;*/
+	}
+
+	.home-intro {
+		display:none;
+	}
+	.homepage .container {
+		top:0;
+	}
+
+	/* Friends profile */
+
+	.profile-tab > .tableDivRight {
+		width:90%;
+	}
+	.profile-tab > .tableDivLeft {
+		padding-left:0;
+		margin-left:0;
+		text-align:center;
+	}
+	.div-my-profile-userpic {
+		text-align: center;
+	}
+	.profile-tab-save-button,.new-chat-create-button {
+		width:100%;
+		height:46px;
+		margin-right:0px;
+	}
+	.new-chat-create-button {
+		margin-top:0px;
+		height:55px;
+		padding-top:18px;
+		font-size: 16px;
+		position:absolute;
+		bottom:0;
+	} 
+	#block-my-profile div.div-my-profile-details {
+		margin-bottom: 0px;
+		margin-left: 0px;
+	}
+	.form-element {
+		margin: 0 5% 1.5em;
+	}
+	.form-control-profile {
+		width:100% !important;
+	}
+	.userpic-edit-btn-remove {
+		left: 194px;
+	}
+	.userpic-edit-btn-takephoto {
+		left: 190px;
+	}
+	.userpic-edit-btn-upload {
+		left:160px;
+	}
+
+
+	/*  VIDEO CHAT  */
+	#videoChatGrid {
+		max-height: 100%;
+		height:100%;
+	}
+	#videoChatGrid #localVideos, #videoChatGrid #remoteVideosWrapper {
+		overflow-y: scroll;
+		margin-bottom: 60px;
+	}
+	#videoChatGrid .container {
+		height:100%;
+		width:100%;
+	}
+	#videoChatGrid .tableDiv {
+		height:100%;
+		padding-left: 0;
+	}
+	#videoChatGrid .profile-link:before,
+	#videoChatGrid .profile-link:after {
+		display: table;
+		content: " ";
+	}
+
+	#videoChatGrid .profile-link:after {
+		clear: both;
+	}
+	/*video,*/
+	#remoteVideos {
+		height:100%;
+		width:100%;
+		margin-left: 0;
+	}
+	#videoChatGrid .tableDivRow {
+		margin-right: 0;
+	}
+	/*.remoteVideo {
+		height: auto;  set by Js == #remoteVideos / N 
+	}*/
+	.small-remote-video video {
+		margin-left:0;
+		height: auto;
+		width: 100%;
+	}
+	a.minimize, .control-back, .control-wrap, div.add-user {
+		display:none;
+	}
+	.constrols-wrap, #videoChatGrid .addchat-wrap {
+		width:100%;
+		right: 0px;
+		position: absolute;
+		height: 60px;
+		margin-top: 0px;
+		bottom: 0;
+		/* width: 150px; */
+		text-align: center;
+	}
+	#videoChatGrid .addchat-wrap .controls-wrap {
+		margin: 8px auto;
+	}
+	#videoChatGrid .localVideo, #videoChatGrid .remoteVideo {
+		/*min-width: 300px;*/
+		min-width: 100%;
+		position: relative;
+		float: left;
+		text-align: center;
+		height: 100% !important;
+		/* margin: 0 0 0 10px; */
+	}
+	a.hung-down {
+		width:100%;
+		background-color: red;
+		background-position: center;
+	}
+	.participants {
+		width:auto;
+	}
+
+	/* Take a photo modal */
+	.modal-dialog-snapshot {
+		width:100% !important;
+		margin-top: 55px;
+	}
+	.div-modal-dialog > .modal-content {
+		width:100%;
+	}
+	.modal-dialog-snapshot.div-modal-dialog > .modal-content {
+		height: auto;
+		padding-bottom: 20px;
+	}
+	.modal-dialog-snapshot.div-modal-dialog > .modal-content > .modal-body {
+		height:auto;
+	}
+	video.webcam-live {
+		width:100%;
+		height:auto;
+		overflow:hidden;
+	}
+
+	/* Add users to a group */
+	.div-modal-dialog > .modal-content.div-modal-content-add-people-to-group,
+	.friendsWithNoGroup {
+		width:100%;
+	}
+	.peoples-lists-add-people-to-group {
+		height:60%;
+	}
+	.friendsWithNoGroup {
+		height: 100%;
+	}
+	div.friendsInGroup {
+		display:none;
+	}
+	.user-name-add-people-to-group {
+		width:50%;
+	}
+	.div-modal-content-add-people-to-group > .modal-footer {
+		margin-left: 0px !important; 
+		text-align: center !important;
+	}
+	.no-favorite {
+		top: auto !important;
+	}
+}
+@media screen and (min-width: 981px) {
+	.container-right .list-menu {
+		display:none;
+	}
+	div#myHomeGrid.grid {
+	    display: block;
+	}
+	div#container-left.container-left {
+		display:block !important;
+	}
+}
+.div-group-chat-buttons {
+	margin-right: 20px;
+}
+
+li.chats-to-friends,
+#block-chat > ul > li:nth-child(3) {
+	float:right;
+	margin-left: 0px;
+}
+li.chats-to-friends a,
+#block-chat > ul > li:nth-child(3) a {
+	margin-left:10px;
+}
+li.menu-buttom,
+#block-chat > ul > li:nth-child(2) {
+	margin-top: 10px;
+	margin-left:20px;
+	float:right;
+	margin-right:20px;
+}
+ul.list-items li div.content,
+.div-add-friends-list-item > .content,
+ul.list-menu li.menu-title,
+li.menu-title,
+#block-my-secret-room ul.list-menu li.menu-title {
+	width:45% !important;
+	text-align: left;
+}
+.li-friend.chats-list-li-friend > .content {
+	width:40%;
+}
+.div-add-friend-invite-buttons {
+	width:90%;
+}
+div#close-facebook-friends-frame.close-facebook-friends {
+	font-size: 20px;
+}
+.div-invite-facebook-button {
+	width:100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.div-add-friends-email-container {
+	margin-top:35px;
+}

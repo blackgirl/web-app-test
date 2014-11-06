@@ -1,0 +1,16 @@
+﻿<div class="modal-dialog div-modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <div>Invite friend</div>
+        </div>
+        <div class="modal-body modal-body-invitation-msg">
+            <div>
+                <input id="input-invitation-msg-text" type="text" placeholder="Add message to your friend..." class="form-control margined-bottom"/>
+            </div>
+            <div ng-controller="friendsController">
+                <button ng-click="friendsSearch.confirmInvitation()" class="btn-ok-invitation-msg">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>

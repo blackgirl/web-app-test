@@ -1,0 +1,377 @@
+<!doctype html>
+<html data-ng-app="swapcast" data-ng-csp="" data-cast-api-enabled="true">
+    <head>
+        <script type="text/javascript" src="js/modernizr-2.8.3.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
+        <title>Swapcast</title>
+        <link rel="icon" type="image/png" href="img/favicon.ico">
+
+        <link rel="stylesheet" href="css/Buttons.css" />
+        <link rel="stylesheet" href="css/Layout.css" />
+        <link rel="stylesheet" href="css/Style.css" />
+        <link rel="stylesheet" href="css/main.css" />
+        <link rel="stylesheet" href="css/HomeStyle.css">
+        <!--[if gt IE 8 ]><link rel="stylesheet" href="css/ie-styles.css"  type="text/css" /><![endif]-->
+
+        <link rel="stylesheet" href="css/TopMenu.css">
+        <link rel="stylesheet" href="css/MediaLibrary.css">
+        <link rel="stylesheet" href="css/ChatsDDL.css">
+        <link rel="stylesheet" href="css/ShareModalDialog.css">
+        <link rel="stylesheet" href="css/intro.css" />
+
+        <script src="js/moment.min.js" type="text/javascript"></script>
+        <script src="js/angular.js" type="text/javascript"></script>
+        <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+        <script src="js/jquery.signalR.min.js" type="text/javascript"></script>
+        <script src="services/entityManagerFactory.js" type="text/javascript"></script>
+    
+        <script src="js/fm.js" type="text/javascript"></script>
+        <script src="js/fm.icelink.js" type="text/javascript"></script>
+        <script src="js/fm.icelink.webrtc.js" type="text/javascript"></script>
+    
+        <link rel="stylesheet" href="js/bootstrap/modal.css" />
+        <script src="js/bootstrap/modal.js" type="text/javascript"></script>
+
+        <link rel="stylesheet" href="js/bootstrap/dropdown.css" />
+        
+       
+
+        <script src="js/bootstrap/dropdown.js" type="text/javascript"></script>
+
+        <script src="js/jstorage.min.js" type="text/javascript"></script>
+        <script src="js/webcam.js" type="text/javascript"></script>
+        <script src="js/pixastic.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/Managers/AnimationManager.js"></script>
+        <script type="text/javascript" src="js/Managers/GridManager.js"></script>
+        <script type="text/javascript" src="js/Managers/StreamManager.js"></script>
+        <script type="text/javascript" src="js/Managers/FullScreenManager.js"></script>
+        <script type="text/javascript" src="js/Managers/FileSendManager.js"></script>
+        <script type="text/javascript" src="js/Managers/ImageDownloadManager.js"></script>
+        <script type="text/javascript" src="js/Managers/ChunkResponsesManager.js"></script>
+        <!--<script src="js/google-analytics-bundle.js" type="text/javascript"></script>-->
+
+        <script type="text/javascript" src="controllers/helpers/storage.js"></script>
+        <script type="text/javascript" src="controllers/helpers/mediaGallery.js"></script>
+        <script type="text/javascript" src="controllers/helpers/SignalR.js"></script>
+        <script type="text/javascript" src="js/Managers/SystemMessageManager.js"></script>
+        <script type="text/javascript" src="js/Managers/GoogleAnalyticsManager.js"></script>
+
+        <script type="text/javascript" src="models/swapcast.conference.js"></script>
+        <script src="models/swapcast.models.js" type="text/javascript"></script>
+        <script src="controllers/swapcastController.js" type="text/javascript"></script>
+    
+        <script src="models/IceLinkWebRtcVideoConference.js" type="text/javascript"></script>
+        <script src="models/IceLinkWebRtcSharingConference.js" type="text/javascript"></script>
+
+        <script type="text/javascript" src="controllers/messagesController.js"></script>
+        <script type="text/javascript" src="controllers/favoritesController.js"></script>
+        <script type="text/javascript" src="controllers/webBrowserController.js"></script>
+        <script type="text/javascript" src="controllers/friendsController.js"></script>
+        <script type="text/javascript" src="controllers/authController.js"></script>
+        <script type="text/javascript" src="controllers/snapshotController.js"></script>
+        <script type="text/javascript" src="controllers/videoChatController.js"></script>
+        <script type="text/javascript" src="controllers/helpers/googleAuth.js"></script>
+        <script type="text/javascript" src="controllers/helpers/facebookAuth.js"></script>
+        <script type="text/javascript" src="controllers/helpers/facebookFriends.js"></script>
+        <script type="text/javascript" src="controllers/helpers/GoogleFriends.js"></script>
+
+        <script type="text/javascript" src="js/htmlUtils.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>    
+
+        <script src="js/jquery-ui-1.10.1.js" type="text/javascript"></script>
+        
+        
+        <script src="controllers/helpers/facebookAuthWeb.js"></script>
+        
+        <script src="https://apis.google.com/js/client:plusone.js"></script>
+        <script src="controllers/helpers/googleAuthWeb.js"></script>
+        <link rel="stylesheet" href="webapp_csschanges.css">
+    </head>
+    <div id="icelinklog"></div>
+    <body ng-controller="swapcastController" ng-switch="showSuggested()">
+        <div id="fb-root"></div>
+        <!--<iframe src="http://swapcast.com" style="width:100%; height:100%; position:fixed; top:0; left:0;border:none" ></iframe>-->
+        <div id="div-suggested-queries" ng-switch-when="true">
+            <ul>
+                <li ng-repeat="url in getSuggested()" ng-click="openFromSuggest(url)" rel="{{url}}">
+                    <div class=".suggested">{{url}}</div>
+                </li>
+            </ul>
+        </div>
+        <div id="mainGrid">
+            <div id="div-system-message">
+                <div id="div-system-message-icon"><div></div></div>
+                <div id="div-system-message-text"></div>
+                <div id="div-system-message-close"></div>
+                <div class="clear-both"></div>
+            </div>
+            <div ng-controller="videoChatController" id="videoChatGrid" data-ng-include data-src="'views/videoChat/videoChatView.html'" class="hide"></div>
+            <div id="div-participants-avatars">
+                <div></div>
+            </div>
+            <div id="div-minimize-wrapper">
+                <div class="control-back">
+                    <span></span>
+                </div>
+                <div class="controls-wrap">
+                    <div id="div-minimize" class="minimize" ng-click="minimize()">
+                        <a href="" class="minimize "></a>
+                    </div>
+                    <div id="div-maximize" class="expand" ng-click="maximize()">
+                        <a href="" class="expand "></a>
+                    </div>
+                </div>
+            </div>
+            <div class="container-body">
+                <div id="container-right" class="container-right tabsArea " ng-controller="webBrowserController">
+                    <!-- My Home -->
+                    <ul class="list-menu">
+                        <li class="li-back-button">
+                            <a class="radius-button-back-chats" ng-click="Functions.showChatsPage()"><span></span></a>
+                        </li>
+                        <li class="menu-title">Home</li>
+                        <li class="menu-button"><a class="circle-button circle-button-context-menu"></a></li>
+                    </ul>
+                    <div id="myHomeGrid" data-ng-include data-src="'views/MyHome.html'" class="grid"></div>
+                    <!-- screen share display -->
+                    <div class="close-share-button hide" ng-click="closeScreenSharing()">x</div>
+                    <div id="screenShareGrid" class="grid hide">
+                       
+                    </div>
+                </div>
+                <div id="splitter" ng-switch="showSplitterButton()" class="container-splitter-close {{!IsAuthorized() && 'no-active' || ''}}">
+                    <div ng-switch-when="true" ng-hide="!IsAuthorized()" ng-click="showFirstUnreadGroup($event)" class="radius-button-red">{{unreadTotalCount()}}</div>
+                </div>
+                <div id="container-left" class="container-left">
+                    <div id="block-chat" class="block" style="display: inline-block;">
+                        <ul class="list-menu">
+                            <li class="menu-title">Chats</li>
+                            <li class="menu-button"><a class="circle-button circle-button-context-menu"></a></li>
+                            <li><a id="chats-to-friends" class="circle-button circle-button-friends"></a><a class="circle-button circle-button-add-friend chats-to-add-friends"></a></li>
+                        </ul>
+                        <div class="scroll-block" ng-switch="IsAuthorized()">
+                            <ul ng-controller="messagesController" id="messagesCntrllr" ng-switch-when="true">
+                                <li ng-controller="friendsController" ng-repeat="friendRequests in swapSettings.FriendshipRequests | orderBy:sortFriends" class="li-friend chats-list-li-friend">
+                                    <div class="div-friend-image">
+                                        <div class="user-photo-frame {{getFriendInfo(friendRequests).StatusClass}}">
+                                            <img ng-src="{{getUserImage(friendRequests.UserId)}}" class="user-photo" />
+                                        </div>
+                                    </div>
+                                    <div class="content">
+                                        <div>{{getFriendInfo(friendRequests).UserName}}</div>
+                                        <div class="div-user-status-text {{getFriendInfo(friendRequests).StatusClass}}">{{getFriendInfo(friendRequests).Status}}</div>
+                                    </div>
+                                    <div class="div-friendship-decline" ng-click="reject(friendRequests.UserId)"></div>
+                                    <div class="div-friendship-confirm" ng-click="accept(friendRequests.UserId)"></div>
+                                </li>
+
+                                <li class="to-main-chat" ng-click="setSelectedGroup(NotSet)" id="chat-to-main-feed">
+                                    <div class="div-chat-image div-share-avatar">
+                                        <img src="css/img/redesign/all_friends_userpic.png" />
+                                    </div>
+
+                                    <div class="div-chat-title-container">
+                                        <div class="div-chat-title div-share-title">All Friends</div>
+                                        <div class="div-chat-last-msg">{{getGroupInfo(-1).LastMessageText}}</div>
+                                    </div>
+
+                                    <div class="div-chat-last-msg-date">{{getGroupInfo(-1).LastMessageDate}}</div>
+
+                                    <div class="newMessages" ng-switch="hasUnreadMessages(-1)">
+                                        <div class="msg-count" ng-switch-when="true">{{swapSettings.Messages.GroupData[-1].NotReadMessagesCount}}</div>
+                                    </div>
+                                </li>
+
+                                <li ng-switch="group.Participants.length > 2" class="to-secret-room {{(group.Participants.length > 2) && 'multiple-users-message'}}" ng-click="setSelectedGroup(group.GroupId)" ng-repeat="group in swapSettings.MessageGroups | orderBy: getDateForOrder : true">
+                                    <div ng-switch-when="true" class="div-chat-multiple-users-message">
+                                        <div class="div-chat-multiple-users-container">
+                                            <div class="div-chat-title div-share-title">{{getGroupInfo(group.GroupId).Title}}</div>
+                                            <div class="div-chat-multiple-users-avatar-container">
+                                                <div ng-repeat="participant in group.Participants | limitTo:13" class="user-photo-frame {{getUserInfoById(participant.UserId, false).StatusClass}}">
+                                                    <img ng-src="{{getUserImage(participant.UserId)}}" title="{{getUserInfoById(participant.UserId, false).UserName}}" class="user-photo" />
+                                                </div>
+                                                <div class="clear-both"></div>
+                                            </div>
+                                            <div class="div-chat-last-msg">{{getGroupInfo(group.GroupId).LastMessageText}}</div>
+                                        </div>
+
+                                        <div class="div-chat-last-msg-date">{{getGroupInfo(group.GroupId).LastMessageDate}}</div>
+
+                                        <div class="newMessages" ng-switch="hasUnreadMessages(group.GroupId)">
+                                            <div class="msg-count" ng-switch-when="true">{{swapSettings.Messages.GroupData[group.GroupId].NotReadMessagesCount}}</div>
+                                        </div>
+                                        <div class="clear-both"></div>
+                                    </div>
+                                    <div ng-switch-when="false">
+                                        <div class="div-chat-image div-share-avatar">
+                                            <img class="img-share-avatar" ng-src="{{getChatUserpic(group.GroupId)}}" />
+                                        </div>
+
+                                        <div class="div-chat-title-container">
+                                            <div class="div-chat-title div-share-title">{{getGroupInfo(group.GroupId).Title}}</div>
+                                            <div class="div-chat-last-msg">{{getGroupInfo(group.GroupId).LastMessageText}}</div>
+                                        </div>
+
+                                        <div class="div-chat-last-msg-date">{{getGroupInfo(group.GroupId).LastMessageDate}}</div>
+
+                                        <div class="newMessages" ng-switch="hasUnreadMessages(group.GroupId)">
+                                            <div class="msg-count" ng-switch-when="true">{{swapSettings.Messages.GroupData[group.GroupId].NotReadMessagesCount}}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <a id="chats-to-new-chat" class="add-chat"></a>
+                    </div>
+                    <div id="messages" ng-controller="messagesController">
+                        <div id="block-main-feed" class="block" ng-include="'views/messages/feed.html'"></div>
+                        <div id="block-my-secret-room" ng-include="'views/messages/groupChat.html'" class="block"></div>
+                        <div id="smile-dropdown">
+                            <div id="div-smile-triangle-top"></div>
+                            <div class="div-smiles-container">
+                                <div class="div-smile-groups">
+                                    <ul>
+                                        <li ng-repeat="smileGroup in smileGroups" ng-click="changeSmilesGroup(smileGroup.index, $event)" class="drop-down-item">
+                                            <div ng-switch="isSmilesGroupActive(smileGroup.index)">
+                                                <img ng-switch-when="true" ng-src="{{smileGroup.icon}}" />
+                                                <img ng-switch-when="false" ng-src="{{smileGroup.inactiveIcon}}" />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="div-smiles-presenter">
+                                    <ul>
+                                        <li ng-repeat="smile in Smiles" ng-click="addSmile(smile)" class="drop-down-item">
+                                            <img title="{{smile.text}}" ng-src="{{smile.small}}" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="div-smile-triangle"></div>
+                        </div>
+                    </div>
+                    <div ng-controller="friendsController">
+                        <div id="block-new-chat" ng-include="'views/friends/newChat.html'" class="block"></div>
+
+                        <div id="block-add-friends" ng-include="'views/friends/addFriends.html'" class="block"></div>
+
+                        <div id="block-my-friends" ng-include="'views/friends/friends.html'" class="block"></div>
+                        
+                    </div>
+
+                    <div ng-controller="authController">
+                        <!-- My Profile -->
+                        <!-- Take Photo Modal-->
+                        <div id="block-my-profile" data-ng-include data-src="'views/profileView.html'" class="block"></div>
+                    </div>
+                    <div ng-controller="friendsController">
+                        <div id="block-friend-profile" data-ng-include data-src="'views/friendProfileView.html'" class="block"></div>
+                    </div>
+
+                    <div id="block-my-favorites" data-ng-include data-src="'views/myFavoritesSlide.html'" class="block"></div>
+
+                    <!-- <div id="block-my-home" data-ng-include data-src="'views/myHomeSlide.html'" class="block"></div>-->
+                </div>
+
+                <div id="drop-down-menu" class="drop-down-menu">
+                    <div class="triangle-up"></div>
+                    <div class="drop-down-menu-items" ng-switch="isGroupChat()">
+                        <!--<div class="drop-down-menu-item">
+                                <a ng-click="showMyHome()">Clips &amp; Links</a>
+                            </div>-->
+                        <div class="drop-down-menu-item" ng-show="IsAuthorized()">
+                            <a class="to-new-chat">Start new chat</a>
+                        </div>
+                        <div class="drop-down-menu-item" ng-show="IsAuthorized()">
+                            <a class="to-add-friends">Invite a new friend</a>
+                        </div>
+                        <div ng-switch="isFriendsList()">
+                            <div class="drop-down-menu-item" ng-switch-when="false" ng-show="IsAuthorized()">
+                                <a class="to-friends">Friends list</a>
+                            </div>
+                            <div class="drop-down-menu-item" ng-switch-when="true" ng-show="IsAuthorized()">
+                                <a ng-click="showDeleteFriend()">Delete friend</a>
+                            </div>
+                        </div>
+                        <div ng-switch-when="true">
+                            <div class="drop-down-menu-item">
+                                <a ng-click="showAddUserToGroupModal()">Add friend to group chat</a>
+                            </div>
+                            <div class="drop-down-menu-item">
+                                <a ng-click="leaveGroup()">Leave this chat</a>
+                            </div>
+                            <div class="drop-down-menu-item">
+                                <a ng-click="showDeleteGroupChatModal()">Delete group chat</a>
+                            </div>
+                        </div>
+                        <div class="drop-down-menu-item" ng-show="IsAuthorized()">
+                            <a class="to-favorites" ng-click="showMyFavorites(true)">My Favorites</a>
+                        </div>
+                        <div ng-controller="authController" >
+                            <div class="drop-down-menu-item" ng-hide="IsAuthorized()">
+                                <a ng-click="Functions.showSignInDialog(true)" data-dismiss="modal" unrestricted="true">Log In</a>
+                            </div>
+                            <div class="drop-down-menu-item" ng-hide="IsAuthorized()">
+                                <a ng-click="Functions.showSignUpDialog(true)">Sign Up</a>
+                            </div>
+
+                            <div class="drop-down-menu-item" ng-show="IsAuthorized()">
+                                <a ng-click="Functions.showMyProfile(true)">My Profile</a>
+                            </div>
+
+
+                            <div class="drop-down-menu-item home-mobile-item mobile-item" ng-show="IsAuthorized()">
+                                <a ng-click="Functions.showHomePage()">My Home</a>
+                            </div>
+                            <div class="drop-down-menu-item chat-mobile-item mobile-item" ng-show="IsAuthorized()">
+                                <a ng-click="Functions.showChatsPage()">Chat Panel</a>
+                            </div>
+
+
+
+                            <div class="drop-down-menu-item" role="menuitem" ng-show="IsAuthorized()" >
+                                <a ng-click="CloseDropDownMenu()" target=" _blank" href="mailto:support@swapcast.zendesk.com">
+                                    Help me!</a>
+                            </div>
+
+                            <div class="drop-down-menu-item" role="menuitem" ng-show="IsAuthorized() && swapSettings.UserProfile.HasAccount">
+                                <a ng-click="Functions.showChangePasswordModal()">Change password</a>
+                            </div>
+                            <div class="drop-down-menu-item" role="menuitem" ng-show="IsAuthorized()">
+                                <a ng-click="Functions.submitSignOut()">Sign Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div data-ng-include data-src="'views/modals.html'"></div>
+        <div class="modal fade" id="takePhotoModal" data-ng-include data-src="'views/auth/takePhotoModal.html'" ng-controller="snapshotController" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+        <div id="authController" ng-controller="authController" ng-switch="showLoginArea()">
+            <div data-ng-include data-src="'views/auth/modals.html'"></div>
+        </div>
+        <div id="container-right" class="container-right modals tabsArea" ng-controller="webBrowserController">
+            <!-- 'Add favorite' modal -->
+            <div class="modal fade" id="AddFavoriteModal" data-ng-include data-src="'views/modals/addFavoriteModal.html'" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>    
+            <!-- 'Share It' modal -->
+            <div class="modal fade" id="shareModalDialog" data-ng-include data-src="'views/modals/shareModal.html'" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+            <!-- 'Share It' modal -->
+            <div class="modal fade" id="shareItModal" data-ng-include data-src="'views/modals/shareItModal.html'" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+        </div>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-2735067-19', 'swapcast.com');
+            ga('send', 'pageview');
+
+        </script>
+    </body>
+</html>

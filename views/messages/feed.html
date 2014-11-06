@@ -1,0 +1,125 @@
+﻿<ul class="ul-group-chat-header list-menu">
+    <li class="li-back-button">
+        <a id="main-feed-to-chat" class="radius-button-back-chats"><span></span></a>
+    </li>
+    <li class="menu-title" >All Friends</li>
+    <li class="menu-button"><a class="circle-button circle-button-context-menu"></a></li>
+</ul>
+<div class="days-menu">
+    <a class="menu-item" rel="1" ng-click="queryMessages(1)">Day</a><span class="menu-separator"> | </span>
+    <a class="menu-item" rel="7" ng-click="queryMessages(7)">Week</a><span class="menu-separator"> | </span>
+    <a class="menu-item" rel="30" ng-click="queryMessages(30)">Month</a><span class="menu-separator"> | </span>
+    <a class="menu-item" rel="240" ng-click="queryMessages(240)">6 Months</a><span class="menu-separator"> | </span>
+    <a class="menu-item" rel="0" ng-click="queryMessages(0)">All</a>
+</div>
+<div class="scroll-block scrollable" ng-switch="IsAuthorized()">
+    <div class="list-messages" ng-switch-when="true">
+        <ul ng-repeat="day in sortedMessages" class="list-items ul-all-friends-messages">
+            <li class="{{getText(message).BorderClass}} message" rel="{{message.MessageId}}" ng-switch="isUserMessage(message)" ng-repeat="message in day.Messages  | filter:filterNonDeleted()" on-finish-render-feed>
+                <div class="message-area">
+                    <div ng-switch="isLinkOrConference(message)" class="div-group-chat-img-container {{getText(message).MessageClass}} {{isLinkOrConference(message) && 'div-group-chat-img-container-extended'}}">
+                        <div class="user-photo-frame {{getUserInfoById(message.UserPosted, false).StatusClass}}">
+                            <img ng-src="{{getUserImage(message.UserPosted)}}" class="user-photo" />
+                        </div>
+                        <div ng-switch-when="true" class="{{getClassForAvatarImage(message)}}"></div>
+                    </div>
+                    <div class="main-feed-content">
+                        <h4 class="username">
+                            {{getUserInfoByIdForMessage(message.UserPosted, false).UserName}}
+                            <span class="span-invitation">{{getInvitationText(message)}}</span>
+                        </h4>
+                        <div ng-switch="isImage(message)">
+                            <img class="img-chat-camera-picture" ng-switch-when="true" ng-src="{{images[message.Image]}}" />  
+                        </div>
+                        <div ng-switch="isFile(message)" style="width:100%">
+                            <div ng-switch-when="true" ng-switch="isImageFile(message.File)" style="width:100%">
+                                <a ng-switch-when="false" ng-click="downloadFile(message, $event)">{{getFileText(message)}}</a>
+                                <a ng-switch-when="true" class="file-link" target="_blank" rel="{{getImageFileLink(message)}}">{{getFileText(message)}}</a>
+                            </div>
+                        </div>
+                        <div class="conference-link" ng-switch="isConferenceInvitation(message)">
+                            <span ng-switch-when="false" class="text-14 ordinalText" ng-bind-html-unsafe="getText(message).MessageText"></span>
+                            <div ng-switch-when="true" class="text-14" ng-switch="isConnectionAllowed(message)">
+                                <div ng-switch-when="false" class="text-14" ng-switch="isVideochat(message)">
+                                    <span ng-switch-when="true">Video Chat Invitation</span>
+                                    <span ng-switch-when="false">Screen Sharing Invitation</span>
+                                    <div class="participants">
+                                        <div ng-repeat="user in message.ConferenceInfo.Peers | filter: isNotInitiator(message)">
+                                            <div class="user-photo-frame {{getUserInfoById(user.UserId, false).StatusClass}}" title="{{getUserInfoById(user.UserId, false).UserName}}">
+                                                <img ng-src="{{getUserImage(user.UserId)}}" class="user-photo" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-switch-when="true">
+                                    <div ng-click="joinConference(message)" class='btn-join'>Accept</div>
+                                    <div ng-click="declineConference(message)" class='btn-decline'>Decline</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-group-chat-date">{{getDateForChatMessage(message.DateSent)}}</div>
+                    <div icon-remove-message-directive class="remove-message hide" ng-switch-when="true" ng-click="removeMessage(message.MessageId)">
+                        <a href></a>
+                    </div>
+                    <div class="like-comment-box" ng-switch="message.IsLiked">
+                        <div>
+                                <div ng-switch-when="true" ng-click="dislikeMessage(message)">
+                                    <span class="liked">{{message.LikesCount}}</span>
+                                    <div class="like liked"></div>
+                                </div>
+                                <div ng-switch-when="false" ng-click="likeMessage(message)">
+                                    <span>{{message.LikesCount}}</span>
+                                    <div class="like"></div>
+                                </div>
+                            <div>
+                                <span>{{message.CommentsCount}}</span>
+                                <span class="comment {{message.CommentsCount && 'commented'}}" ng-click="toggleCommentEditor(message.MessageId)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-text-input" style="display: none" id="{{message.MessageId}}">
+                    <textarea enter-press="{{'sendComment(' + message.MessageId + ',$event)'}}"></textarea>
+                    <div class="square-button" ng-click="sendComment(message.MessageId,$event)">
+                        <div class="icon icon-send"></div>
+                        <span>Send</span>
+                    </div>
+                </div>
+                <div class="message-comments">
+                    <div class="message-comment borderNormalMessage" ng-repeat="comment in message.Comments | orderBy: 'DateSent'">
+                        <div class="image">
+                            <div class="user-photo-frame {{getUserInfoById(comment.UserPosted, false).StatusClass}}">
+                                <img ng-src="{{getUserImage(comment.UserPosted)}}" class="user-photo" />
+                            </div>
+                        </div>
+                        <div class="main-feed-content">
+                            <h4 class="username">{{getUserInfoByIdForMessage(comment.UserPosted, false).UserName}}</h4>
+                            <div class="conference-link" >
+                                <span class="text-14 ordinalText" ng-bind-html-unsafe="getCommentText(comment).commentText"></span>
+                            </div>
+                        </div>
+                        <div class="message-comment-time">{{getDateForChatMessage(comment.DateSent)}}</div>
+                    </div>
+                </div>
+                <div class="more-comments-wrapper" ng-switch="showMoreComments(message)">
+                    <div class="more-comments" ng-click="moreComments(message.MessageId)" ng-switch-when="true">
+                        <span class="text-14">More Comments</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<div class="main-feed-chat-block">
+    <textarea enter-press-line="postMessage()" new-line="newLineFeed()" enter-press-with-new-line rows="7" placeholder="Your message ..."></textarea>
+    <div class="div-group-chat-buttons">
+        <div class="div-group-chat-send-msg" ng-click="postMessage()">Send</div>
+        <div class="div-group-chat-toggle-smiles" ng-click="toggleSmiles($event, false)" title="Emoicons"></div>
+        <div class="div-group-chat-send-file" ng-click="sendFile($event)" title="Send file"></div>
+        <div class="div-group-chat-start-video" ng-click="startVideoChatButtonOnClick(false)" title="Video chat"></div>
+       <!--<div class="div-group-chat-start-sharing" ng-click="startScreenSharing(false)" title="Screen share"></div>-->
+        <div class="div-group-chat-send-photo" ng-click="sendPhoto($event)" title="Camera"></div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+﻿<ul class="ul-group-chat-header list-menu">
+    <li class="li-back-button">
+        <a id="friends-to-chats" class="radius-button-back-chats"></a>
+    </li>
+    <li class="menu-title">Friends</li>
+    <li class="menu-button">
+        <a class="circle-button circle-button-context-menu" ></a>
+    </li>
+    <li class="li-add-friend-button">
+        <a class="circle-button circle-button-add-friend friends-to-add-friends"></a>
+    </li>
+</ul>
+
+<div class="div-filter-friends-input-container">    
+    <input ng-model="filterFriendsString" id="input-filter-friends" placeholder="Search friends" />
+</div>
+
+<div class="scroll-block div-friends-scroll-block">
+    <ul class="list-items">
+        <li ng-repeat="friendRequests in swapSettings.FriendshipRequests | filter:filterFriends | orderBy:sortFriends" class="li-friend">
+            <div class="div-friend-image">
+                <div class="user-photo-frame {{getFriendInfo(friendRequests).StatusClass}}">
+                    <img ng-src="{{getUserImage(friendRequests.UserId)}}" class="user-photo" />
+                </div>
+            </div>
+            <div class="content">
+                <div>{{getFriendInfo(friendRequests).UserName}}</div>
+                <div class="div-user-status-text {{getFriendInfo(friendRequests).StatusClass}}">{{getFriendInfo(friendRequests).Status}}</div>
+            </div>
+            <div class="div-friendship-decline" ng-click="reject(friendRequests.UserId)"></div>
+            <div class="div-friendship-confirm" ng-click="accept(friendRequests.UserId)"></div>
+        </li>
+    </ul>
+    <ul class="list-items">
+        <li ng-repeat="friend in getFriendsCollection() | filter:filterFriends | orderBy:sortFriends" ng-click="privateChat(friend.UserId)" class="li-friend">
+            <div class="div-friend-image">
+                <div class="user-photo-frame {{getFriendInfo(friend).StatusClass}}">
+                    <img ng-click="showFriendProfile(friend.UserId)" ng-src="{{friend.Userpic}}" class="user-photo" />
+                </div>
+            </div>
+            <div class="content" >
+                <div>{{getFriendInfo(friend).UserName}}</div>
+                <div class="div-user-status-text {{getFriendInfo(friend).StatusClass}}">{{getFriendInfo(friend).Status}}</div>
+            </div>
+            <div ng-switch="showDeleteFriendsItems()">
+                <div class="div-delete-friend" ng-switch-when="true" ng-click="confirmDeleteFriend(friend, $event)">
+                    
+                </div>
+            </div>
+            <div class="div-arrow-right"></div>
+        </li>
+    </ul>
+    <div class="modal fade" id="deleteFriendModal" data-ng-include data-src="'views/modals/DeleteFriendModal.html'" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+</div>

@@ -1,0 +1,113 @@
+html, body {
+	overflow:hidden;
+}
+.mobile-item {
+	display:none;
+}
+#block-new-chat > .scroll-block {
+	height:370px;
+}
+
+div.days-menu.ng-scope {
+	position:relative;
+	top:60px;
+	width:459px;
+}
+ul.ul-group-chat-header.list-menu.ng-scope {
+	position:absolute;
+	top:0;
+}
+
+.my-secret-room-chat-block textarea, .main-feed-chat-block textarea {
+    width: 420px;
+	margin-right:20px;
+}
+.my-secret-room-chat-block, .main-feed-chat-block {
+	height:200px;
+	padding-top: 50px;
+	background: rgb(242, 243, 243);
+}
+.div-add-friends-input-container, .div-filter-friends-input-container {
+	margin-top: 75px;
+}
+#block-my-friends {
+	width:100%;
+}
+
+
+
+/* Mobile version */
+
+@media screen and (max-width: 1164px) {
+	html, body {
+		min-width: 445px;
+	}
+	#splitter,
+	#myHomeGrid,
+	.chat-mobile-item {
+		display:none;
+	}
+	.home-mobile-item,
+	#container-left {
+		display:block;
+	}
+
+	div#container-right.container-right.tabsArea {
+		left: 0 !important;
+		padding-right:0;
+	}
+	.homepage.wrapper {
+		min-width: 445px;
+	}
+	#myHomeGrid .container-top, #myHomeGrid .container-featured, #myHomeGrid .container-friendsLike {
+		width: 100%;
+		margin-left: 0;
+	}
+	#myHomeGrid {
+		top:60px;
+	}
+	.homepage .container-featured {
+		margin-left: 0 !important;
+	}
+
+	.homepage .container-featured .icon-left {
+		width:auto;
+	}
+	#container-right.modals {
+		display:block;
+	}
+	#container-left.container-left, #container-left>div,
+	#block-my-secret-room, #block-main-feed, .block,
+	.scroll-block, .days-menu, .ul-group-chat-header, ul.list-menu,
+	.my-secret-room-chat-block, .main-feed-chat-block,
+	.modal-dialog {
+		width:100% !important;
+	}
+	.my-secret-room-chat-block textarea, .main-feed-chat-block textarea {
+		margin-right:5%;
+		margin-left:5%;
+	}
+	li.menu-button {
+		float:right;
+		margin-right:20px;
+	}
+	#block-chat > ul > li:nth-child(2) {
+		margin-left:50%;
+	}
+	.div-modal-dialog > .modal-content {
+		width:100%;
+	}
+	ul.list-menu {
+		background: rgb(264,264,264);
+	}
+	ul.list-menu li.menu-title {
+		margin-top: 15px;
+		margin-left:20px;
+		font-size: 18px;
+		color: black;
+	}
+	.menu-button {
+		margin-top: 10px;
+		margin-left: 20px;
+	}
+}

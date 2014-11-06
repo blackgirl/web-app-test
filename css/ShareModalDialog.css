@@ -1,0 +1,138 @@
+﻿.share-modal-content {
+    width: 500px;
+    padding: 40px 8px 40px 40px;
+}
+
+.share-modal-header {
+    height: 60px;
+}
+
+    .share-modal-header > :first-child {
+        float: left;
+        font-size: 16px;
+    }
+
+.share-modal-button-close {
+    cursor: url(img/cursor.png) 5 0,default;
+    float: right;
+    height: 16px;
+    width: 16px;
+    outline: none;    
+    margin-right: 32px;
+    background-image: url(img/redesign/lightbox_close.png) !important;
+    opacity: 1 !important;
+}
+
+.share-modal-button-close:hover {
+    background-image: url(img/redesign/lightbox_close_hover.png) !important;
+    opacity: 1 !important;
+}
+
+.share-modal-body {
+    max-height: 255px;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+    .share-modal-body > :last-child {    
+        border-bottom: 1px solid #D9D9D9;
+    }
+
+.div-share-item {
+    height: 80px;
+    border-top: 1px solid #D9D9D9;
+}
+
+.div-share-avatar {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-top: 15px;
+    border: 2px solid #A3B42E;
+    -webkit-border-radius:25px;
+   -moz-border-radius:25px;
+        border-radius:25px;
+    padding: 3px 3px;
+}
+
+.share-modal-body > :first-child > .div-share-avatar {
+    margin-left: 5px;
+    border: none;
+    width: 40px;
+    height: 40px;
+    background-image: url(img/redesign/all_friends_userpic.png);
+}
+
+.img-share-avatar {
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius:20px;
+   -moz-border-radius:20px;
+        border-radius:20px;
+}
+
+.div-share-title {
+    float: left;
+    margin-top: 30px;
+    color: #31B4ED;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.div-share-checkbox {
+    cursor: url(img/cursor.png) 5 0,default;
+    float: right;
+    width: 32px;
+    height: 32px;
+    background-image: url(img/redesign/select.png);
+    margin-top: 25px;
+}
+
+    .div-share-checkbox:hover {
+        background-image: url(img/redesign/select_hover.png);
+    }
+
+    .div-share-checkbox.selected, .div-share-checkbox.selected:hover {
+        background-image: url(img/redesign/selected_hover.png);
+    }
+
+.share-modal-footer {
+    margin-top: 30px;
+    text-align: right;
+}
+
+.share-modal-button-share {
+    width: 100px;
+    height: 44px;
+    background-color: #31B4ED;
+    color: white;
+    border: none;
+    -webkit-border-radius:3px;
+   -moz-border-radius:3px;
+        border-radius:3px;
+    font-weight: bold;
+    font-size: 14px;
+    outline: none;
+    cursor: url(img/cursor.png) 5 0,default;
+    margin-right: 32px;
+}
+
+#share-modal-facebook-button {
+    background-image: url(img/invite_facebook.png);
+    width: 420px;
+    height: 35px;
+    margin-bottom: 10px;
+    cursor: url(img/cursor.png) 5 0,default;
+}
+
+.div-filter-share-items-input-container {
+    margin-right: 16px;
+    border: 1px solid #CCCCCC;
+    background-color: white;
+    -webkit-border-radius:2px;
+   -moz-border-radius:2px;
+        border-radius:2px;
+    padding: 12px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,45 @@
+﻿<ul class="ul-group-chat-header list-menu">
+    <li class="li-back-button">
+        <a id="add-friends-to-chats" class="radius-button-back-chats" ng-click="friendsSearch.clean()"></a>
+    </li>
+    <li class="menu-title">Add friend</li>
+    <li class="menu-button">
+        <a class="circle-button circle-button-context-menu"></a>
+    </li>
+</ul>
+
+<div class="div-add-friends-container div-add-friends-input-container">
+    <input ng-model="friendsSearch.searchString" ng-change="friendsSearch.search()"  placeholder="Name" />
+</div>
+
+<div class="div-add-friends-container div-add-friends-list" ng-hide="!friendsSearch.searchString">
+    <ul>
+        <li class="div-add-friends-list-item" ng-repeat="member in friendsSearch.searchResult">
+            <div class="div-friend-image">
+                <div class="user-photo-frame {{getFriendInfo(member).StatusClass}}">
+                    <img ng-src="{{getFriendInfo(member).UserPic}}" class="user-photo" />
+                </div>
+            </div>
+            <div class="content">{{getFriendInfo(member).UserName}}</div>
+            <div class="div-add-friend-button" ng-click="friendsSearch.inviteFriendById(member.UserId)"></div>            
+        </li>
+    </ul>
+</div>
+
+<div class="div-add-friend-plain-text">Or</div>
+
+<div class="div-add-friends-container div-add-friends-input-container div-add-friends-email-container">
+    <input ng-model="friendsSearch.email" enter-press="{{'friendsSearch.inviteFriendByEmail(friendsSearch.email)'}}" value="Type email for invitation" placeholder="Type email for invitation"/>
+</div>
+
+<div>
+    <div ng-click="friendsSearch.inviteFriendByEmail(friendsSearch.email)" class="div-add-friend-send-button">Send</div>
+    <div class="clear-both"></div>
+</div>
+
+<div class="div-add-friend-plain-text">Or invite friends from your network</div>
+
+<div class="div-add-friend-invite-buttons">
+    <div class="div-invite-facebook-button" ng-click="friendsSearch.facebookFriends()"></div>
+    <div class="div-invite-google-button" ng-click="friendsSearch.googlePlusFriends()"></div>
+</div>

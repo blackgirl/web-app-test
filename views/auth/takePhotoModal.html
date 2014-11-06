@@ -1,0 +1,21 @@
+﻿<div class="modal-dialog-snapshot div-modal-dialog" ng-switch="isTakePictureModalOpen">
+    <div class="modal-content" ng-switch-when="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <div>Take a photo</div>
+        </div>
+        <div class="modal-body">
+            <div class="form-group {{webcamError && 'take-photo-dialog-webcam-wrap-disabled'}}">
+                <webcam on-access-denied="onError(err)" on-stream="onStream(stream, video)" on-error="onError(err)" placeholder="'img/ajax-loader.gif'">
+                    <div ng-show="webcamError">
+                        <span>Please make sure your camera is plugged in and working.</span>
+                    </div>
+                </webcam>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="take-photo-dialog-take-photo-button" ng-click="makeSnapshot()" unrestricted="true">Take a photo</button>
+            <button type="button" class="take-photo-dialog-cancel-button" data-dismiss="modal" unrestricted="true">Cancel</button>
+        </div>
+    </div>
+</div>

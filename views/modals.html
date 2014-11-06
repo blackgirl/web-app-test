@@ -1,0 +1,32 @@
+﻿<!-- Show Alert modal -->
+<div class="modal fade" id="alertModal" data-ng-include data-src="'views/modals/showAlertModal.html'" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
+<div class="modal fade" id="invitationMessageModal" data-ng-include data-src="'views/modals/invitationMessageModal.html'" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
+    <!-- Invite friends - Invite Friends-->
+    <div class="modal fade" id="inviteFriendsModal" data-ng-include data-src="'views/modals/inviteFriendsModal.html'" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
+    <!-- 'Share Screen' modal -->
+    <div class="modal fade" id="shareScreenModal" data-ng-include data-src="'views/modals/shareScreenModal.html'" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+    <!-- 'Favorites confirm delete' -->
+    <div class="modal fade" id="favoritesDeleteModal" ng-controller="favoritesController" data-ng-include data-src="'views/modals/favoritesDeleteModal.html'" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
+    <!-- 'Add to Group' modal -->
+<div class="modal fade" id="addUserToGroupModal" data-ng-include data-src="'views/modals/addUserToGroupModal.html'" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
+<div class="modal fade" id="deleteGroupChatModal" data-ng-include data-src="'views/modals/deleteGroupChatModal.html'" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
+<div class="modal fade" id="addUserToVideoChatModal" data-ng-include data-src="'views/modals/addUserToVideoChat.html'" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
+<div class="modal fade" id="idleTimeoutModal" data-ng-include data-src="'views/modals/inactivityTimeoutModal.html'" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
+<div class="modal fade" align="left" id="videoChatModal" data-ng-include data-src="'views/modals/cancelVideoChatModal.html'" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
+<audio style="visibility: hidden" id="playSoundElement"></audio>
+
+<audio style="visibility: hidden" id="invitationSoundElement" src="sounds/incoming_call.mp3"></audio>
+
+<form id="fileSendForm" style="display: none">
+    <input type="file" name="file"/>
+    <input type="hidden" value="{{swapSettings.authToken}}" name="token"/>
+</form>

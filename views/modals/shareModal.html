@@ -1,0 +1,37 @@
+﻿<div class="modal-dialog">
+    <div class="modal-content share-modal-content">
+        <div class="share-modal-header">
+            <div>Share link with</div>
+            <button type="button" class="share-modal-button-close close" data-dismiss="modal" aria-hidden="true"></button>
+        </div>
+        
+        <div class="div-filter-share-items-input-container">
+            <input ng-model="filterShareItemsString" id="input-filter-share-items" placeholder="Search friends" />
+        </div>
+
+        <div class="share-modal-body">
+            <div class="div-share-item">
+                <div class="div-share-avatar"></div>
+                <div class="div-share-title">All Friends</div>
+                <div class="div-share-checkbox select" ng-click="saveGroupToShareLink({GroupId: -1}, $event)"></div>
+            </div>
+
+            <div ng-repeat="chat in MessageGroupsAndFriends | filter:filterShareItems | orderBy: getDateForOrder : true" class="div-share-item">
+                <div class="div-share-avatar">
+                    <img class="img-share-avatar" ng-src="{{getChatAvatar(chat)}}" />
+                </div>
+                <div class="div-share-title">{{getChatName(chat)}}</div>
+                <div class="div-share-checkbox" ng-click="saveGroupToShareLink(chat, $event)"></div>
+            </div>
+        </div>
+
+        <div class="share-modal-footer">
+            <div id="share-modal-facebook-button" ng-click="shareLinkWithFacebookFriends()"></div>
+
+            <div>
+                <input type="text" ng-bind="sharedLinks.sharingLinkTitle" ng-model="sharedLinks.sharingLinkTitle" style="width:418px;" placeholder="Comment" class="form-control margined-bottom"/>
+            </div>
+            <button type="button" class="share-modal-button-share" ng-click="startLinkSharing()">Share</button>
+        </div>
+    </div>
+</div>

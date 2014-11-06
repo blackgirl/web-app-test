@@ -1,0 +1,33 @@
+﻿<div class="modal-dialog div-modal-dialog signin-modal-dialog">
+	<div class="modal-content signin-modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+			<div>Sign In</div>
+		</div>
+	    <div class="modal-body signin-modal-body">
+	        <div class="signin-modal-input-container invalid-input" style="visibility: hidden">
+	            Sorry: That email/password combination is not valid. Try again!
+	        </div>
+	        <div class="signin-modal-input-container">
+	            <input type="text" class="form-control" enter-press="Functions.submitSignIn()" ng-model="SignInModal.Email" placeholder="Email" />
+	        </div>
+	        <div class="signin-modal-input-container">
+	            <input type="password" class="form-control" enter-press="Functions.submitSignIn()" ng-model="SignInModal.Password" placeholder="Password" />
+	        </div>
+	        <div class="signin-modal-remember-me-container">
+	            <input type="checkbox" ng-model="SignInModal.Remember" />
+	            <label for="signInRemember">Remember me</label>
+	        </div>
+	        <div class="signin-modal-buttons-container">
+                <button type="button" class="signin-modal-btn-signin" ng-click="Functions.submitSignIn()" unrestricted="true">Log In</button>
+                <button type="button" class="signin-modal-btn-cancel" data-dismiss="modal" unrestricted="true">Cancel</button>
+	        </div>
+	        <div class="signin-modal-forgot-password">
+                <a id="linkForgotPassword" ng-click="Functions.showPasswordRecovery()" class="btn-link" data-dismiss="modal" unrestricted="true">Forgot Password?</a>
+	        </div>
+	    </div>
+	    <div class="signin-modal-footer">
+            <button type="button" ng-click="Functions.showSignUpDialog(false)" class="signin-modal-btn-signup" data-dismiss="modal" unrestricted="true">Sign Up</button>
+	    </div>
+	</div>
+</div>

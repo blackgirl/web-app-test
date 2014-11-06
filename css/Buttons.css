@@ -1,0 +1,365 @@
+.circle-button {
+    display:inline-block;
+    width:28px;
+    height:28px;
+}
+
+.circle-blue {
+    color: #FFF;
+    background-image:url(img/browser_sprite.png);
+    background-repeat: no-repeat;
+    background-position: 0 -70px;
+    text-align:center;
+}
+    .circle-blue span {
+        display:block;
+        margin-top: 7px;
+        font-size: 12px;
+    }
+
+.circle-button-friends {
+    width: 24px;
+    height: 25px;
+    background-image:url(img/redesign/chat_friends.png);
+}
+
+.circle-button-friends:hover {
+        background-image: url(img/redesign/chat_friends_hover.png);
+}
+
+.circle-button-add-friend {
+    width: 21px;
+    height: 24px;
+    background-image:url(img/redesign/chat_new_friend.png);
+}
+
+.circle-button-add-friend:hover {
+        background-image: url(img/redesign/chat_new_friend_hover.png);
+}
+
+.circle-button-context-menu {
+    width: 40px;
+    height: 40px;
+    background-image:url(img/redesign/icon_menu.png);
+}
+
+.circle-button-context-menu:hover {
+        background-image: url(img/redesign/icon_menu_hover.png);
+}
+
+.circle-button-small-plus {
+    background-image:url(img/icons_sprite.png);
+    background-repeat:no-repeat;
+    background-position: -300px 0;
+}
+
+    .circle-button-small-plus:hover {
+        background-image:url(img/icons_sprite.png);
+        cursor: url(img/cursor.png) 5 0,default;
+        background-position: -350px 0;
+    }
+
+.circle-button-remove {
+    background-image:url(img/browser_sprite.png);
+    background-repeat:no-repeat;
+    background-position: -50px -70px;
+}
+
+    .circle-button-remove:hover {
+        background-image:url(img/browser_sprite.png);
+        cursor: url(img/cursor.png) 5 0,default;
+        background-position: -100px -70px;
+    }
+
+.circle-button-added {
+    background-image:url(img/icons_sprite.png);
+    background-repeat:no-repeat;
+    background-position: -400px 0;
+}
+
+    .circle-button-added:hover {
+        background-image:url(img/icons_sprite.png);
+        cursor: url(img/cursor.png) 5 0,default;
+        background-position: -450px 0;
+    }
+
+.square-button {
+    padding-top: 4px;
+    display:inline-block;
+    width:127px;
+    height:23px;
+    background-color:#E8EAEB;
+    text-align: center;
+    font-size: 14px;
+    color: #AAA;
+}
+
+.square-button:hover {
+     background-color:#31B4ED;
+     color:white !important;
+}
+
+
+.wide-button {
+    width: 380px; 
+    text-align: center; 
+    margin-left: 10px; 
+    color: gray;
+    font-size: 13px;
+    padding-top:4px; 
+    margin-top:20px;
+}
+
+    .share-button:hover {
+         background-color:#AA2C31;
+    }
+
+a.youtube-link {
+    background-image:url(img/youtube_link.png);
+    background-repeat: no-repeat;
+    color:#AAA;
+    padding-left: 22px;
+}
+
+    a.youtube-link:hover {
+        color:#31B4ED;
+    }
+
+a.radius-button-back-chats {
+    background-image: url(img/redesign/browser_prev.png);
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+    a.radius-button-back-chats:hover {
+        background-image: url(img/redesign/browser_prev_hover.png);
+    }
+
+a.radius-button-back {
+    background-image: url(img/redesign/browser_prev.png);
+    display: block;
+    width: 21px;
+    height: 36px;
+    background-repeat: no-repeat;
+    background-position: 6px 12px;
+}
+
+    a.radius-button-back:hover {
+        background-image: url(img/redesign/browser_prev_hover.png);
+    }
+
+    a.expand {
+		width: 30px;
+	    height: 30px;
+		display:inline-block;
+		background-image:url(img/redesign/icon_videochat_collapse.png);
+        background-repeat:no-repeat;
+    }
+	a.expand:hover {
+		background-image:url(img/redesign/icon_videochat_collapse_hover.png);
+    }
+    a.minimize {
+	    width: 30px;
+	    height: 30px;
+        display:inline-block;
+        background-image:url(img/redesign/icon_videochat_uncollapse.png);
+        background-repeat:no-repeat;
+    }
+    a.minimize:hover {
+		background-image:url(img/redesign/icon_videochat_uncollapse_hover.png);    
+    }
+    .addchat-wrap a {
+        display:inline-block;
+        float:left;
+        width:50px;
+        height:45px; 
+    }
+    a.hung-down {
+        background-image:url(img/redesign/icon_videochat_endcall.png);
+        background-repeat:no-repeat;
+    }
+
+    a.hung-down:hover {
+        background-image:url(img/redesign/icon_videochat_endcall_hover.png);
+    }
+
+	 a.start_video {
+        background-image:url(img/redesign/icon_videochat_rec.png);
+        background-repeat:no-repeat;
+    }
+
+    a.start_video:hover {
+        background-image:url(img/redesign/icon_videochat_rec_hover.png);
+    }
+
+    a.add-user {
+        background-image:url(img/redesign/icon_videochat_add.png);
+        background-repeat:no-repeat;
+    }
+    a.add-user:hover {
+        background-image:url(img/redesign/icon_videochat_add_hover.png);
+    }
+
+	a.start_screening {
+        background-image:url(img/display_share.png);
+        background-repeat:no-repeat;
+    }
+    a.start_screening:hover {
+        background-image:url(img/display_share_hover.png);
+    }
+
+    a.stop_screening {
+        background-image:url(img/display_share.png);
+        background-repeat:no-repeat;
+    }
+    a.stop_screening:hover {
+        background-image:url(img/display_share_hover.png);
+    }
+
+    #videoChatGrid a.start_screening {
+        background-image:url(img/redesign/videochat_screen_share.png);
+        background-repeat:no-repeat;
+    }
+    #videoChatGrid a.start_screening:hover {
+        background-image:url(img/redesign/videochat_screen_share_hover.png);
+    }
+
+    a.stop_screening {
+        background-image:url(img/redesign/videochat_screen_share.png);
+        background-repeat:no-repeat;
+    }
+    a.stop_screening:hover {
+        background-image:url(img/redesign/videochat_screen_share_hover.png);
+    }
+
+
+.facebook-button {
+    display:inline-block;
+    width:184px;
+    height:28px;
+    background-image:url(img/facebook_button.png);
+}
+
+.google-plus-button {
+    display:inline-block;
+    width:184px;
+    height:28px;
+    background-image:url(img/google_plus_button.png);
+}
+
+
+.textarea-circle-button {
+    position:absolute;
+    display:block;
+    width:28px;
+    height:28px;
+    background-position-x: 5px;
+    background-position-y: 6px;
+    background-color: #ccc;
+    -webkit-border-radius:14px;
+   -moz-border-radius:14px;
+        border-radius:14px;
+    top: 74px;
+    margin-right: 10px;
+}
+
+    .textarea-circle-button:hover {
+        background-color:#31B4ED;
+    }
+
+    
+
+.icon {
+    width:18px;
+    height:18px;
+    display:inline-block;
+    background-repeat:no-repeat;
+    margin-right:4px;
+    background-image:url(img/icons.png);
+    vertical-align: middle;
+}
+
+.icon-join {
+    background-position-x:0px; 
+    -moz-background-position-x:0px; 
+    -webkit-background-position-x:0px; 
+}
+
+.square-button:hover .icon-join, .icon-join:hover  {
+    background-position-x:-19px; 
+    -moz-background-position-x:-19px; 
+    -webkit-background-position-x:-19px; 
+}
+
+.icon-video {
+    background-image: url(img/BrowserIconsSprite.png);
+    background-position: -533px -10px;
+    -moz-background-position: -533px -10px;
+    -webkit-background-position: -533px -10px;
+}
+
+/*.square-button:hover .icon-video, */
+.icon-video:hover  {
+    background-image: url(img/BrowserIconsSprite.png);
+    background-position: -533px -157px; 
+    -moz-background-position: -533px -157px; 
+    -webkit-background-position: -533px -157px; 
+}
+
+.icon-send {
+    background-position-x: -76px;
+    -moz-background-position-x: -76px;
+    -webkit-background-position-x: -76px;
+    background-position-y: 1px;
+    -moz-background-position-y: 1px;
+    -webkit-background-position-y: 1px;
+}
+
+.square-button:hover .icon-send, .icon-send:hover  {
+    background-position-x:-95px; 
+    -moz-background-position-x:-95px; 
+    -webkit-background-position-x:-95px; 
+}
+
+.icon-share {
+    background-position-x: -112px;
+    -moz-background-position-x: -112px;
+    -webkit-background-position-x: -112px;
+    background-position-y:1px;
+    -moz-background-position-y:1px;
+    -webkit-background-position-y:1px;
+    
+}
+
+.square-button:hover .icon-share, .icon-share:hover  {
+    background-position-x:-129px; 
+    -moz-background-position-x:-129px; 
+    -webkit-background-position-x:-129px; 
+}
+
+
+.textarea-circle-button .icon {
+    margin-left: 5px;
+    margin-top: 6px;
+}
+
+/*.textarea-circle-button:hover .icon-video {
+    background-position-x:-57px; 
+}*/
+
+
+
+.icon-smile {
+    background-position-x:-146px; 
+    -moz-background-position-x:-146px; 
+    -webkit-background-position-x:-146px; 
+}
+
+.textarea-circle-button:hover .icon-smile {
+    background-position-x:-164px; 
+    -moz-background-position-x:-164px; 
+    -webkit-background-position-x:-164px; 
+}

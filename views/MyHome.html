@@ -1,0 +1,144 @@
+<div id='myHome' class="wrapper homepage">
+    
+    <div class="home-intro">
+        <div class="inner">
+            <h1>Download Swapcast</h1>
+            <h2>for other platforms now!</h2>
+            <p class="platform-icons">
+                <a href="http://swapcast.com/#Mobile" title="Apple" target="_blank"><img src='img/intro/apple.png' alt="" /></a>
+                <a href="http://swapcast.com/#ChromeApp" title="Chrome" target="_blank"><img src='img/intro/chrome.png' alt="" /></a>
+                <a href="http://swapcast.com/#Mobile" title="Android" target="_blank"><img src='img/intro/android.png' alt="" /></a>
+                <a href="http://swapcast.com/#Desktop" title="Windows" target="_blank"><img src='img/intro/win.png' alt="" /></a>
+            </p>
+            <p class="platform-links">
+                <a href="http://swapcast.com/#Desktop" title="Windows PC" target="_blank">Windows PC</a>
+                - <a href="http://swapcast.com/#ChromeApp" title="Mac PC" target="_blank">Mac PC</a>
+                - <a href="http://swapcast.com/#ChromeApp" title="Chrome app" target="_blank">Chrome app</a>
+                - <a href="http://swapcast.com/#Mobile" title="iPhone app" target="_blank">iPhone app</a>
+                - <a href="http://swapcast.com/#Mobile" title="iPad app" target="_blank">iPad app</a>
+                - <a href="http://swapcast.com/#Mobile" title="Android" target="_blank">Android</a>
+                - <a href="http://swapcast.com/#Mobile" title="Android Tablet" target="_blank">Android Tablet</a>
+            </p>
+        </div>
+    </div>
+    <div class="container facebook-friends" id="block-my-facebook-friends">
+        <div class="friends-facebook-nav">
+            <div class="close-facebook-friends" id="close-facebook-friends-frame">
+                x
+            </div>
+        </div>
+        <iframe src="" class="facebook-friends-frame"></iframe>
+    </div>
+    <div class="container my-home-div" ng-controller="favoritesController">
+        <p class="greating">Welcome, {{swapSettings.UserProfile.FirstName}}!</p>
+
+        <div class="container-featured" ng-hide="!swapSettings.Links.FeaturedLinks.length">
+            <div class="col-name">
+                <i class="top-icon"></i><span class="col-name">Top 10 Viral Videos</span>
+            </div>
+            <ul class="list-items list-items-t">
+                <li ng-repeat="feature in swapSettings.Links.FeaturedLinks" ng-click="openFavLink(feature.Url)">
+                    <span class="featured-positions">{{$index + 1}}</span>
+                    <div class="icon-left image">
+                        <img ng-src="{{thumbnailImageUrl(feature)}}" alt="" class="normal">
+                        <img src="css/img/redesign/video_hover.png" alt="" class="hover">
+                    </div>
+                    <div class="text-center">
+                        <div class="favContainer" ng-switch="showFavUrl(feature)">
+                            <p class="title">{{feature.Title}}</p>
+                            <p class="url" ng-switch-when="true">{{feature.Url}}</p>
+                        </div>
+                        <div class="cos-icon" ng-if="feature.SharesCount">
+                            <div class="cos-icon">
+                                <img src="css/img/redesign/shares.png" alt="">
+                                <span class="countSpan">{{feature.SharesCount}}</span>
+                            </div>
+                        </div>
+                        <div ng-if="feature.FavoritesCount">
+                            <div class="cos-icon">
+                                <img src="css/img/redesign/comments.png" alt="">
+                                <span class="countSpan">{{feature.FavoritesCount}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="container-friendsLike">
+            <div class="col-name">
+                <i class="friends-icon"></i><span class="col-name">Links friends shared</span>
+            </div>
+            <ul class="list-items-f list-items-t">
+                <li class="list-friend" ng-repeat="friendLike in swapSettings.Links.FriendsShares">
+                    <ul class="list-items list-items-t">
+                        <div class="friend-block">
+                            <div class="icon-left image">
+                                <img ng-src="{{getUserImage(friendLike.UserId)}}" class="user-photo f-user-photo {{getUserInfoById(friendLike.UserId, false).StatusClass}}" alt="">
+                            </div>
+                            <div class="text-center text-center-name">
+                                {{getUserInfoById(friendLike.UserId, false).UserName}}
+                            </div>
+                        </div>
+                        <li ng-repeat="like in friendLike.SharedLinks" ng-click="openFavLink(like.Url)">
+                            <div class="icon-left image">
+                                <img ng-src="{{getFavIconUrl(favorite.IconId)}}" alt="">
+                            </div>
+                            <div class="text-center">
+                                <div class="favContainer" ng-switch="showFavUrl(like)">
+                                    <p class="title">{{like.Title}}</p>
+                                    <p class="url" ng-switch-when="true">{{like.Url}}</p>
+                                </div>
+                                <div class="cos-icon" ng-if="like.SharesCount">
+                                    <div class="cos-icon">
+                                        <img src="css/img/redesign/shares.png" alt="">
+                                        <span class="countSpan">{{like.SharesCount}}</span>
+                                    </div>
+                                </div>
+                                <div ng-if="like.FavoritesCount">
+                                    <div class="cos-icon">
+                                        <img src="css/img/redesign/comments.png" alt="">
+                                        <span class="countSpan">{{like.FavoritesCount}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="container-top">
+            <div class="col-name">
+                <i class="swapcast-icon"></i><span class="col-name">Suggested</span>
+            </div>
+            <ul class="list-items-t list-items">
+                <li ng-repeat="favorite in swapSettings.Links.TopRatedLinks | limitTo: 5" ng-click="openFavLink(favorite.Url)">
+                    <div class="icon-left image">
+                        <img ng-src="{{getFavIconUrl(favorite.IconId)}}" alt="">
+                    </div>
+                    <div class="text-center">
+                        <div class="favContainer" ng-switch="showFavUrl(favorite)">
+                            <p class="title">{{favorite.Title}}</p>
+                            <p class="url" ng-switch-when="true">{{favorite.Url}}</p>
+                        </div>
+                        <div class="cos-icon" ng-if="favorite.SharesCount">
+                            <div class="cos-icon">
+                                <img src="css/img/redesign/shares.png" alt="">
+                                <span class="countSpan">{{favorite.SharesCount}}</span>
+                            </div>
+                        </div>
+                        <div ng-if="favorite.FavoritesCount">
+                            <div class="cos-icon">
+                                <img src="css/img/redesign/comments.png" alt="">
+                                <span class="countSpan">{{favorite.FavoritesCount}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class='clearfix'></div>
+    </div>
+    <div class="footer">
+    </div>
+</div>

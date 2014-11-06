@@ -1,0 +1,19 @@
+﻿<table id="favs" ng-controller="favoritesController">
+    <tr>
+        <td id="favoriteArea">
+            <div id="favoritesFeed">
+                <div data-id="{{favorite.FavoriteId}}" class="friend" ng-repeat="favorite in swapSettings.Favorites | orderBy:'-DateCreated':">
+                    <div class="message-body">
+                        <a ng-click="addNewTab(favorite.Url)">{{favorite.Title}}</a>
+                        <button type="submit" ng-click="deleteFavoriteLink(favorite.FavoriteId)" class="btn btnDeleteFavorite">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="shareScreenArea">
+            <input class="btn shareScreenFriends" type="submit" value="Share Screen">
+        </td>
+    </tr>
+</table>

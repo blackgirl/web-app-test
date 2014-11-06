@@ -1,0 +1,332 @@
+﻿.div-top-menu-buttons-wrap {
+    margin: 0 auto;
+    width: 560px;
+}
+
+.div-top-menu-buttons {
+    float: left;
+    position: absolute;
+}
+
+.div-top-menu-button {
+    float: left;
+    height: 61px;
+    width: 80px;
+	background: url(img/TopMenuSprites.png) no-repeat;
+}
+
+/* Share link button */
+
+.div-top-menu-button:nth-child(1) {
+    background-position: -100px -200px;
+}
+
+.div-top-menu-button.disabled:nth-child(1),
+.div-top-menu-button.disabled:hover:nth-child(1) {
+    background-position: -200px -200px;
+}
+
+.div-top-menu-button:hover:nth-child(1) {
+    background-position: 0 -200px;
+}
+
+/* Video chat button */
+
+.div-top-menu-button:nth-child(2) {
+    background-position: -100px -100px;
+}
+
+.div-top-menu-button:nth-child(2).active {
+	background-position: -300px -300px;
+}
+
+.div-top-menu-button:nth-child(2).active:hover {
+	background-position: 0 -100px;
+}
+
+.div-top-menu-button.disabled:nth-child(2),
+.div-top-menu-button.disabled:hover:nth-child(2) {
+    background-position: -200px -100px;
+}
+
+.div-top-menu-button:hover:nth-child(2) {
+    background-position: 0 -100px;
+}
+
+/* Video share button */
+
+.div-top-menu-button:nth-child(3) {
+    background-position: 0 0;
+}
+
+.div-top-menu-button:nth-child(3).active {
+    background-position: -400px -300px;
+}
+
+.div-top-menu-button:nth-child(3).active:hover {
+	background: url(img/TopMenuSprites.png) no-repeat;
+	background-position: -100px 0;
+}
+
+
+.div-top-menu-button.disabled:nth-child(3),
+.div-top-menu-button.disabled:hover:nth-child(3) {
+    background-position: -200px 0;
+}
+
+.div-top-menu-button:hover:nth-child(3) {
+    background-position: -100px 0;
+}
+
+/* Record DVR button */
+/*
+.div-top-menu-button:nth-child(4) {
+    background-position: -100px -300px;
+}
+
+.div-top-menu-button > .dropdown > a > div {
+    height: 61px;
+    width: 80px;
+}
+
+.div-top-menu-button.disabled:nth-child(4),
+.div-top-menu-button.disabled:hover:nth-child(4) {
+    background-position: -200px -300px;
+}
+
+.div-top-menu-button:hover:nth-child(4) {
+    background-position: 0 -300px;
+}
+	*/
+/* Add to Fav */
+
+.div-top-menu-button:nth-child(4) {
+    background-position: -400px -100px;
+}
+
+.div-top-menu-button.disabled:nth-child(4),
+.div-top-menu-button.disabled:hover:nth-child(4) {
+    background-position: -500px -100px;
+}
+
+.div-top-menu-button:hover:nth-child(4) {
+    background-position: -300px -100px;
+}
+
+/* My Friends button */
+
+.div-top-menu-button:nth-child(5) {
+    background-position: -400px 0;
+}
+
+.div-top-menu-button.disabled:nth-child(5),
+.div-top-menu-button.disabled:hover:nth-child(5) {
+    background-position: -500px 0;
+}
+
+.div-top-menu-button:hover:nth-child(5) {
+    background-position: -300px 0;
+}
+
+/* Add Friend button */
+
+.div-top-menu-button:nth-child(6) {
+    background-position: -400px -200px;
+}
+
+.div-top-menu-button.disabled:nth-child(6),
+.div-top-menu-button.disabled:hover:nth-child(6) {
+    background-position: -500px -200px;
+}
+
+.div-top-menu-button:hover:nth-child(6) {
+    background-position: -300px -200px;
+}
+
+  
+    .div-top-menu-button > .circle-button-24 {
+        margin: 11px auto 0 auto;
+    }
+
+    .div-top-menu-button-title {
+        color: #74868F;
+        margin-top: 5px;
+        text-align: center;
+    }
+
+
+@media (max-width: 1075px) {
+
+    #browserTabs {
+        margin-right: 20px;
+    }
+
+    #profileArea {
+        padding-top: 19px;
+    }
+
+    .profile-dropdown {
+        height: 28px;
+    }
+
+    .profile-span {
+        display: none;
+    }
+
+    .profile-link > .user-photo-frame {
+        width: 28px;
+        height: 28px;
+    }
+
+    .profile-div.user-photo-frame > img.my-profile-user-photo {
+        width: 22px;
+        height: 22px;
+        margin-top: 1px;
+    }
+
+    .profile-link.my-profile {
+        margin-top: 0;
+    }
+
+    .profile-dropdown  .user-photo {
+        margin-top: 1px;
+        width: 24px;
+        height: 24px;
+    }
+
+    .div-top-menu-buttons-wrap {
+        float: right;
+        margin-right: 102px;
+        width: 198px;
+    }
+
+    .div-top-menu-button {
+        margin-left: 6px;
+        height: 28px;
+        width: 28px;
+    }
+
+        /* Share link button */
+
+        .div-top-menu-button:nth-child(1) {
+            background-position: -126px -211px;
+        }
+
+        .div-top-menu-button.disabled:nth-child(1),
+        .div-top-menu-button.disabled:hover:nth-child(1) {
+            background-position: -226px -211px;
+        }
+
+        .div-top-menu-button:hover:nth-child(1) {
+            background-position: -150px -370px;
+        }
+
+        /* Video chat button */
+
+        .div-top-menu-button:nth-child(2) {
+            background-position: -126px -111px;
+        }
+
+        .div-top-menu-button.disabled:nth-child(2),
+        .div-top-menu-button.disabled:hover:nth-child(2) {
+            background-position: -226px -111px;
+        }
+
+        .div-top-menu-button:hover:nth-child(2),
+		.div-top-menu-button.active:hover:nth-child(2) {
+            background-position: -180px -370px;
+        }
+
+		.div-top-menu-button:nth-child(2).active {
+			background-position: -326px -311px;
+        }
+
+        /* Video share button */
+
+        .div-top-menu-button:nth-child(3) {
+            background-position: -26px -11px;
+        }
+
+		.div-top-menu-button:nth-child(3).active {
+			background-position: -426px -311px;
+        }
+
+        .div-top-menu-button:nth-child(3).disabled,
+        .div-top-menu-button:nth-child(3).disabled:hover {
+            background-position: -226px -11px;
+        }
+
+        .div-top-menu-button:hover:nth-child(3),
+		.div-top-menu-button.active:hover:nth-child(3)  {
+            background-position: -120px -370px;
+	    }
+
+        /* Record DVR button */
+
+        /*.div-top-menu-button:nth-child(4) {
+            background-position: -126px -311px;
+        }
+
+        .div-top-menu-button.disabled:nth-child(4),
+        .div-top-menu-button.disabled:hover:nth-child(4) {
+            background-position: -226px -311px;
+        }
+
+        .div-top-menu-button:hover:nth-child(4) {
+            background-position: -60px -370px;
+        }
+
+        .div-top-menu-button > .dropdown > a > div {
+            height: 28px;
+            width: 28px;
+        }*/
+
+        /* Add to Fav */
+
+        .div-top-menu-button:nth-child(4) {
+            background-position: -426px -111px;
+        }
+
+        .div-top-menu-button.disabled:nth-child(4),
+        .div-top-menu-button.disabled:hover:nth-child(4) {
+            background-position: -526px -111px;
+        }
+
+        .div-top-menu-button:hover:nth-child(4) {
+            background-position: 0 -370px;
+        }
+
+        /* My Friends button */
+
+        .div-top-menu-button:nth-child(5) {
+            background-position: -426px -11px;
+        }
+
+        .div-top-menu-button.disabled:nth-child(5),
+        .div-top-menu-button.disabled:hover:nth-child(5) {
+            background-position: -527px -11px;
+        }
+
+        .div-top-menu-button:hover:nth-child(5) {
+            background-position: -90px -370px;
+        }
+
+        /* Add Friend button */
+
+        .div-top-menu-button:nth-child(6) {
+            background-position: -426px -211px;
+        }
+
+        .div-top-menu-button:nth-child(6).disabled,
+        .div-top-menu-button:nth-child(6).disabled:hover {
+            background-position: -526px -211px;
+		}
+
+        .div-top-menu-button:hover:nth-child(6) {
+            background-position: -30px -370px;
+        }
+
+        .dropdown-menu.my-profile-dropdown-menu {
+            margin-right: -6px;
+        }
+}

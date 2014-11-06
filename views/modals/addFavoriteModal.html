@@ -1,0 +1,22 @@
+﻿<div class="modal-dialog div-modal-dialog">
+    <div class="modal-content modal-content-add-to-fav">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <div>Add To Favorites</div>
+        </div>
+        <div class="modal-body add-to-fav-modal-body">
+            <div class="add-to-fav-url-label">URL</div>
+            <div class="add-to-fav-url">
+                <input type="text" ng-model="sharedLinks.openLinkName" value="" />
+            </div>
+            <div class="add-to-fav-title-label">Title</div>
+            <div class="add-to-fav-title">
+                <input type="text" ng-model="sharedLinks.sharingLinkTitle" value="" />
+            </div>
+        </div>
+        <div class="modal-footer add-to-fav-modal-footer">
+            <button type="button" class="add-to-fav-link-button" ng-click="AddFavoriteLink()">Add favorite link</button>
+            <button type="button" class="add-to-fav-cancel-button" data-dismiss="modal">Cancel</button>
+        </div>
+    </div>
+</div>
