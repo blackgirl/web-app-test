@@ -75,12 +75,12 @@ app.directive("tabDirective", function () {
     };
 });
 
-//app.value('signalRServer', 'http://apps.swapcast.com/');
+app.value('signalRServer', 'http://apps.swapcast.com/');
 //app.value('signalRServer', 'http://testserver2.pixelzoo.no/swapcast-test'); // production
 //app.value('signalRServer', 'http://testserver2.pixelzoo.no/zwopper'); // dev
 //app.value('signalRServer', 'http://swapcast.azurewebsites.net/'); // dev
 //app.value('signalRServer', 'http://localhost:13212/'); // local debug
-app.value('signalRServer', window.location.protocol +"//" + window.location.host + "/");
+// app.value('signalRServer', window.location.protocol +"//" + window.location.host + "/");
 app.directive('ngBlur', ['$parse', function ($parse) {
     return function (scope, element, attr) {
         var fn = $parse(attr['ngBlur']);
